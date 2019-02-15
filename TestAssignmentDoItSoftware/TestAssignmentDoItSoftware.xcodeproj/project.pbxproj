@@ -14,6 +14,15 @@
 		F5039B3922173D400080DA14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5039B3822173D400080DA14 /* Assets.xcassets */; };
 		F5039B3C22173D400080DA14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5039B3A22173D400080DA14 /* LaunchScreen.storyboard */; };
 		F5039B3F22173D400080DA14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5039B3E22173D400080DA14 /* main.m */; };
+		F54702F7221750DF008516C1 /* AuthScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F54702F1221750DF008516C1 /* AuthScreenViewController.xib */; };
+		F54702F8221750DF008516C1 /* AuthScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F54702F2221750DF008516C1 /* AuthScreenViewController.m */; };
+		F54702FC2217514A008516C1 /* EditTaskScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F54702FA2217514A008516C1 /* EditTaskScreenViewController.m */; };
+		F54702FD2217514A008516C1 /* EditTaskScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F54702FB2217514A008516C1 /* EditTaskScreenViewController.xib */; };
+		F54703012217516D008516C1 /* MyTaskListScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F54702FF2217516D008516C1 /* MyTaskListScreenViewController.m */; };
+		F54703022217516D008516C1 /* MyTaskListScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F54703002217516D008516C1 /* MyTaskListScreenViewController.xib */; };
+		F54703052217518C008516C1 /* TASingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F54703042217518C008516C1 /* TASingleton.m */; };
+		F54703092217522F008516C1 /* TaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F54703072217522F008516C1 /* TaskDetailViewController.m */; };
+		F547030A2217522F008516C1 /* TaskDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F54703082217522F008516C1 /* TaskDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +37,20 @@
 		F5039B3B22173D400080DA14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5039B3D22173D400080DA14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5039B3E22173D400080DA14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F54702F0221750DF008516C1 /* AuthScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthScreenViewController.h; sourceTree = "<group>"; };
+		F54702F1221750DF008516C1 /* AuthScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthScreenViewController.xib; sourceTree = "<group>"; };
+		F54702F2221750DF008516C1 /* AuthScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthScreenViewController.m; sourceTree = "<group>"; };
+		F54702F92217514A008516C1 /* EditTaskScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditTaskScreenViewController.h; sourceTree = "<group>"; };
+		F54702FA2217514A008516C1 /* EditTaskScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditTaskScreenViewController.m; sourceTree = "<group>"; };
+		F54702FB2217514A008516C1 /* EditTaskScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditTaskScreenViewController.xib; sourceTree = "<group>"; };
+		F54702FE2217516D008516C1 /* MyTaskListScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTaskListScreenViewController.h; sourceTree = "<group>"; };
+		F54702FF2217516D008516C1 /* MyTaskListScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTaskListScreenViewController.m; sourceTree = "<group>"; };
+		F54703002217516D008516C1 /* MyTaskListScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTaskListScreenViewController.xib; sourceTree = "<group>"; };
+		F54703032217518C008516C1 /* TASingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TASingleton.h; sourceTree = "<group>"; };
+		F54703042217518C008516C1 /* TASingleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TASingleton.m; sourceTree = "<group>"; };
+		F54703062217522F008516C1 /* TaskDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskDetailViewController.h; sourceTree = "<group>"; };
+		F54703072217522F008516C1 /* TaskDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskDetailViewController.m; sourceTree = "<group>"; };
+		F54703082217522F008516C1 /* TaskDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +83,11 @@
 		F5039B2B22173D3E0080DA14 /* TestAssignmentDoItSoftware */ = {
 			isa = PBXGroup;
 			children = (
+				F54702EF221750DF008516C1 /* AuthScreen */,
+				F54702F4221750DF008516C1 /* EditTaskScreen */,
+				F54702F5221750DF008516C1 /* MyTaskListScreen */,
+				F54702F6221750DF008516C1 /* TASingleton */,
+				F54702F3221750DF008516C1 /* TaskDetailScreen */,
 				F5039B2C22173D3E0080DA14 /* AppDelegate.h */,
 				F5039B2D22173D3E0080DA14 /* AppDelegate.m */,
 				F5039B2F22173D3E0080DA14 /* ViewController.h */,
@@ -72,6 +100,55 @@
 				F5039B3522173D3E0080DA14 /* TestAssignmentDoItSoftware.xcdatamodeld */,
 			);
 			path = TestAssignmentDoItSoftware;
+			sourceTree = "<group>";
+		};
+		F54702EF221750DF008516C1 /* AuthScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F54702F0221750DF008516C1 /* AuthScreenViewController.h */,
+				F54702F1221750DF008516C1 /* AuthScreenViewController.xib */,
+				F54702F2221750DF008516C1 /* AuthScreenViewController.m */,
+			);
+			path = AuthScreen;
+			sourceTree = "<group>";
+		};
+		F54702F3221750DF008516C1 /* TaskDetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F54703062217522F008516C1 /* TaskDetailViewController.h */,
+				F54703072217522F008516C1 /* TaskDetailViewController.m */,
+				F54703082217522F008516C1 /* TaskDetailViewController.xib */,
+			);
+			path = TaskDetailScreen;
+			sourceTree = "<group>";
+		};
+		F54702F4221750DF008516C1 /* EditTaskScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F54702F92217514A008516C1 /* EditTaskScreenViewController.h */,
+				F54702FA2217514A008516C1 /* EditTaskScreenViewController.m */,
+				F54702FB2217514A008516C1 /* EditTaskScreenViewController.xib */,
+			);
+			path = EditTaskScreen;
+			sourceTree = "<group>";
+		};
+		F54702F5221750DF008516C1 /* MyTaskListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F54702FE2217516D008516C1 /* MyTaskListScreenViewController.h */,
+				F54702FF2217516D008516C1 /* MyTaskListScreenViewController.m */,
+				F54703002217516D008516C1 /* MyTaskListScreenViewController.xib */,
+			);
+			path = MyTaskListScreen;
+			sourceTree = "<group>";
+		};
+		F54702F6221750DF008516C1 /* TASingleton */ = {
+			isa = PBXGroup;
+			children = (
+				F54703032217518C008516C1 /* TASingleton.h */,
+				F54703042217518C008516C1 /* TASingleton.m */,
+			);
+			path = TASingleton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,7 +209,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5039B3C22173D400080DA14 /* LaunchScreen.storyboard in Resources */,
+				F54702FD2217514A008516C1 /* EditTaskScreenViewController.xib in Resources */,
 				F5039B3922173D400080DA14 /* Assets.xcassets in Resources */,
+				F54703022217516D008516C1 /* MyTaskListScreenViewController.xib in Resources */,
+				F54702F7221750DF008516C1 /* AuthScreenViewController.xib in Resources */,
+				F547030A2217522F008516C1 /* TaskDetailViewController.xib in Resources */,
 				F5039B3422173D3E0080DA14 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,10 +225,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F54703052217518C008516C1 /* TASingleton.m in Sources */,
+				F54703012217516D008516C1 /* MyTaskListScreenViewController.m in Sources */,
+				F54702F8221750DF008516C1 /* AuthScreenViewController.m in Sources */,
 				F5039B3122173D3E0080DA14 /* ViewController.m in Sources */,
 				F5039B2E22173D3E0080DA14 /* AppDelegate.m in Sources */,
 				F5039B3F22173D400080DA14 /* main.m in Sources */,
 				F5039B3722173D3E0080DA14 /* TestAssignmentDoItSoftware.xcdatamodeld in Sources */,
+				F54703092217522F008516C1 /* TaskDetailViewController.m in Sources */,
+				F54702FC2217514A008516C1 /* EditTaskScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
