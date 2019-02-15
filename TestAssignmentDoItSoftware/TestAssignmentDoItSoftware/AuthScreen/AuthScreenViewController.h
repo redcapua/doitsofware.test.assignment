@@ -10,8 +10,32 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AuthScreenViewController : UIViewController
+@interface AuthScreenViewController : UIViewController<UITextFieldDelegate>{
+    
+    UIView *overlayView;
+    UIActivityIndicatorView *activityIndicator;
+    
+}
+
+
+@property(strong, nonatomic) IBOutlet UITextField *tfLogin;
+@property(strong, nonatomic) IBOutlet UITextField *tfPassword;
+@property(strong, nonatomic) IBOutlet UIButton *btnAuth;
+@property(strong, nonatomic) IBOutlet UISwitch *swMode;
+
+
+- (IBAction)btnAuthTapped:(id)sender;
+- (IBAction)swModeChanged:(id)sender;
+
+-(BOOL)checkLogin;
+-(BOOL)checkPassword;
+
+-(void)showAlertMessage:(NSString *)title message:(NSString *)message;
+
+-(void)authCompleted:(NSNotification *)notification;
+
 
 @end
+
 
 NS_ASSUME_NONNULL_END

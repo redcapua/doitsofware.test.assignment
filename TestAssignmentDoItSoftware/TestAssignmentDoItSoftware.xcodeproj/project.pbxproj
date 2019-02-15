@@ -98,8 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				F54702F0221750DF008516C1 /* AuthScreenViewController.h */,
-				F54702F1221750DF008516C1 /* AuthScreenViewController.xib */,
 				F54702F2221750DF008516C1 /* AuthScreenViewController.m */,
+				F54702F1221750DF008516C1 /* AuthScreenViewController.xib */,
 			);
 			path = AuthScreen;
 			sourceTree = "<group>";
