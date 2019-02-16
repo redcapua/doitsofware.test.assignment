@@ -7,10 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyTaskCell/MyTaskTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MyTaskListScreenViewController : UIViewController
+@interface MyTaskListScreenViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+ 
+    UIRefreshControl *refreshControl;
+    NSMutableArray *arrTasks;
+    
+}
+
+@property (weak, nonatomic) IBOutlet UITableView *tblTasks;
+
 
 @end
 

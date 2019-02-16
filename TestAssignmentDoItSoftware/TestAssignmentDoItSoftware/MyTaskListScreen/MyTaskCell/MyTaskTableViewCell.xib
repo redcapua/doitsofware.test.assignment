@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="69" id="KGk-i7-Jjw" customClass="MyTaskTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="68.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="forward.png" translatesAutoresizingMaskIntoConstraints="NO" id="vG3-ND-U4z">
+                        <rect key="frame" x="276" y="22.5" width="24" height="24"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Task name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2af-TX-V41">
+                        <rect key="frame" x="20" y="16" width="248" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Due to 19/02/19" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aW0-wL-aQS">
+                        <rect key="frame" x="20" y="41" width="111" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Medium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LwQ-El-OdF">
+                        <rect key="frame" x="139" y="41" width="52" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="vG3-ND-U4z" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="4ft-d8-Rbq"/>
+                    <constraint firstItem="2af-TX-V41" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="Ag0-OG-FTF"/>
+                    <constraint firstItem="aW0-wL-aQS" firstAttribute="top" secondItem="2af-TX-V41" secondAttribute="bottom" constant="8" id="KKK-ge-WZx"/>
+                    <constraint firstItem="LwQ-El-OdF" firstAttribute="leading" secondItem="aW0-wL-aQS" secondAttribute="trailing" constant="8" id="O9m-fv-YLi"/>
+                    <constraint firstItem="aW0-wL-aQS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="SK9-6D-Nib"/>
+                    <constraint firstItem="vG3-ND-U4z" firstAttribute="leading" secondItem="2af-TX-V41" secondAttribute="trailing" constant="8" id="WiE-uO-4h2"/>
+                    <constraint firstItem="2af-TX-V41" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="YiL-Hs-GxD"/>
+                    <constraint firstAttribute="trailing" secondItem="vG3-ND-U4z" secondAttribute="trailing" constant="20" id="Zr9-aY-jhq"/>
+                    <constraint firstItem="LwQ-El-OdF" firstAttribute="top" secondItem="2af-TX-V41" secondAttribute="bottom" constant="8" id="pcO-P5-mwr"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lblDueToDateLabel" destination="aW0-wL-aQS" id="5r1-Tz-PCt"/>
+                <outlet property="lblPriorityLabel" destination="LwQ-El-OdF" id="tOm-Tr-dvj"/>
+                <outlet property="lblTaskNameLabel" destination="2af-TX-V41" id="5Jx-CD-yVZ"/>
+            </connections>
+            <point key="canvasLocation" x="132.80000000000001" y="156.97151424287858"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="forward.png" width="32" height="32"/>
+    </resources>
+</document>

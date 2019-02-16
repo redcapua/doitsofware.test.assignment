@@ -50,6 +50,15 @@
 }
 
 
+-(void)viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:animated];
+    
+    [self btnAuthTapped:nil];
+    
+}
+
+
 #pragma mark - app flow actions
 
 - (IBAction)btnAuthTapped:(id)sender{
