@@ -21,6 +21,20 @@
 		F54703052217518C008516C1 /* TASingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F54703042217518C008516C1 /* TASingleton.m */; };
 		F54703092217522F008516C1 /* TaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F54703072217522F008516C1 /* TaskDetailViewController.m */; };
 		F547030A2217522F008516C1 /* TaskDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F54703082217522F008516C1 /* TaskDetailViewController.xib */; };
+		F58D67212218AC7A00D173C5 /* sort@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F58D671B2218AC7A00D173C5 /* sort@2x.png */; };
+		F58D67222218AC7A00D173C5 /* sort@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F58D671C2218AC7A00D173C5 /* sort@3x.png */; };
+		F58D67232218AC7A00D173C5 /* alarm@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F58D671D2218AC7A00D173C5 /* alarm@3x.png */; };
+		F58D67242218AC7A00D173C5 /* alarm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F58D671E2218AC7A00D173C5 /* alarm@2x.png */; };
+		F58D67252218AC7A00D173C5 /* alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = F58D671F2218AC7A00D173C5 /* alarm.png */; };
+		F58D67262218AC7A00D173C5 /* sort.png in Resources */ = {isa = PBXBuildFile; fileRef = F58D67202218AC7A00D173C5 /* sort.png */; };
+		F58D672A2218B12000D173C5 /* forward@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F58D67272218B11F00D173C5 /* forward@3x.png */; };
+		F58D672B2218B12000D173C5 /* forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F58D67282218B11F00D173C5 /* forward@2x.png */; };
+		F58D672C2218B12000D173C5 /* forward.png in Resources */ = {isa = PBXBuildFile; fileRef = F58D67292218B11F00D173C5 /* forward.png */; };
+		F58D67312218B1F600D173C5 /* MyTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F58D672F2218B1F600D173C5 /* MyTaskTableViewCell.m */; };
+		F58D67322218B1F600D173C5 /* MyTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F58D67302218B1F600D173C5 /* MyTaskTableViewCell.xib */; };
+		F58D67362218BA1500D173C5 /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F58D67332218BA1500D173C5 /* add@2x.png */; };
+		F58D67372218BA1500D173C5 /* add@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F58D67342218BA1500D173C5 /* add@3x.png */; };
+		F58D67382218BA1500D173C5 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = F58D67352218BA1500D173C5 /* add.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +60,21 @@
 		F54703062217522F008516C1 /* TaskDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskDetailViewController.h; sourceTree = "<group>"; };
 		F54703072217522F008516C1 /* TaskDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskDetailViewController.m; sourceTree = "<group>"; };
 		F54703082217522F008516C1 /* TaskDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskDetailViewController.xib; sourceTree = "<group>"; };
+		F58D671B2218AC7A00D173C5 /* sort@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sort@2x.png"; sourceTree = "<group>"; };
+		F58D671C2218AC7A00D173C5 /* sort@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sort@3x.png"; sourceTree = "<group>"; };
+		F58D671D2218AC7A00D173C5 /* alarm@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alarm@3x.png"; sourceTree = "<group>"; };
+		F58D671E2218AC7A00D173C5 /* alarm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alarm@2x.png"; sourceTree = "<group>"; };
+		F58D671F2218AC7A00D173C5 /* alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm.png; sourceTree = "<group>"; };
+		F58D67202218AC7A00D173C5 /* sort.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sort.png; sourceTree = "<group>"; };
+		F58D67272218B11F00D173C5 /* forward@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forward@3x.png"; sourceTree = "<group>"; };
+		F58D67282218B11F00D173C5 /* forward@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forward@2x.png"; sourceTree = "<group>"; };
+		F58D67292218B11F00D173C5 /* forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forward.png; sourceTree = "<group>"; };
+		F58D672E2218B1F600D173C5 /* MyTaskTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTaskTableViewCell.h; sourceTree = "<group>"; };
+		F58D672F2218B1F600D173C5 /* MyTaskTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTaskTableViewCell.m; sourceTree = "<group>"; };
+		F58D67302218B1F600D173C5 /* MyTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTaskTableViewCell.xib; sourceTree = "<group>"; };
+		F58D67332218BA1500D173C5 /* add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add@2x.png"; sourceTree = "<group>"; };
+		F58D67342218BA1500D173C5 /* add@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add@3x.png"; sourceTree = "<group>"; };
+		F58D67352218BA1500D173C5 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +107,7 @@
 		F5039B2B22173D3E0080DA14 /* TestAssignmentDoItSoftware */ = {
 			isa = PBXGroup;
 			children = (
+				F58D671A2218AC6500D173C5 /* images */,
 				F54702EF221750DF008516C1 /* AuthScreen */,
 				F54702F5221750DF008516C1 /* MyTaskListScreen */,
 				F54702F4221750DF008516C1 /* EditTaskScreen */,
@@ -127,6 +157,7 @@
 		F54702F5221750DF008516C1 /* MyTaskListScreen */ = {
 			isa = PBXGroup;
 			children = (
+				F58D672D2218B1DC00D173C5 /* MyTaskCell */,
 				F54702FE2217516D008516C1 /* MyTaskListScreenViewController.h */,
 				F54702FF2217516D008516C1 /* MyTaskListScreenViewController.m */,
 				F54703002217516D008516C1 /* MyTaskListScreenViewController.xib */,
@@ -141,6 +172,35 @@
 				F54703042217518C008516C1 /* TASingleton.m */,
 			);
 			path = TASingleton;
+			sourceTree = "<group>";
+		};
+		F58D671A2218AC6500D173C5 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				F58D67352218BA1500D173C5 /* add.png */,
+				F58D67332218BA1500D173C5 /* add@2x.png */,
+				F58D67342218BA1500D173C5 /* add@3x.png */,
+				F58D67292218B11F00D173C5 /* forward.png */,
+				F58D67282218B11F00D173C5 /* forward@2x.png */,
+				F58D67272218B11F00D173C5 /* forward@3x.png */,
+				F58D671F2218AC7A00D173C5 /* alarm.png */,
+				F58D671E2218AC7A00D173C5 /* alarm@2x.png */,
+				F58D671D2218AC7A00D173C5 /* alarm@3x.png */,
+				F58D67202218AC7A00D173C5 /* sort.png */,
+				F58D671B2218AC7A00D173C5 /* sort@2x.png */,
+				F58D671C2218AC7A00D173C5 /* sort@3x.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		F58D672D2218B1DC00D173C5 /* MyTaskCell */ = {
+			isa = PBXGroup;
+			children = (
+				F58D672E2218B1F600D173C5 /* MyTaskTableViewCell.h */,
+				F58D672F2218B1F600D173C5 /* MyTaskTableViewCell.m */,
+				F58D67302218B1F600D173C5 /* MyTaskTableViewCell.xib */,
+			);
+			path = MyTaskCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,11 +261,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5039B3C22173D400080DA14 /* LaunchScreen.storyboard in Resources */,
+				F58D67222218AC7A00D173C5 /* sort@3x.png in Resources */,
 				F54702FD2217514A008516C1 /* EditTaskScreenViewController.xib in Resources */,
+				F58D67212218AC7A00D173C5 /* sort@2x.png in Resources */,
+				F58D67252218AC7A00D173C5 /* alarm.png in Resources */,
+				F58D67322218B1F600D173C5 /* MyTaskTableViewCell.xib in Resources */,
+				F58D672A2218B12000D173C5 /* forward@3x.png in Resources */,
 				F5039B3922173D400080DA14 /* Assets.xcassets in Resources */,
 				F54703022217516D008516C1 /* MyTaskListScreenViewController.xib in Resources */,
+				F58D67372218BA1500D173C5 /* add@3x.png in Resources */,
+				F58D67382218BA1500D173C5 /* add.png in Resources */,
 				F54702F7221750DF008516C1 /* AuthScreenViewController.xib in Resources */,
+				F58D672C2218B12000D173C5 /* forward.png in Resources */,
+				F58D67362218BA1500D173C5 /* add@2x.png in Resources */,
+				F58D67232218AC7A00D173C5 /* alarm@3x.png in Resources */,
+				F58D67242218AC7A00D173C5 /* alarm@2x.png in Resources */,
 				F547030A2217522F008516C1 /* TaskDetailViewController.xib in Resources */,
+				F58D672B2218B12000D173C5 /* forward@2x.png in Resources */,
+				F58D67262218AC7A00D173C5 /* sort.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +293,7 @@
 				F54703012217516D008516C1 /* MyTaskListScreenViewController.m in Sources */,
 				F54702F8221750DF008516C1 /* AuthScreenViewController.m in Sources */,
 				F5039B2E22173D3E0080DA14 /* AppDelegate.m in Sources */,
+				F58D67312218B1F600D173C5 /* MyTaskTableViewCell.m in Sources */,
 				F5039B3F22173D400080DA14 /* main.m in Sources */,
 				F5039B3722173D3E0080DA14 /* TestAssignmentDoItSoftware.xcdatamodeld in Sources */,
 				F54703092217522F008516C1 /* TaskDetailViewController.m in Sources */,
