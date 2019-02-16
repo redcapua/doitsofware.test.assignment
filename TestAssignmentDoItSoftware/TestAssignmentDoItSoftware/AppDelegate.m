@@ -16,7 +16,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
+    AuthScreenViewController *authScreen = [[AuthScreenViewController alloc] init];
+    [self.window setRootViewController:authScreen];
+    
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
 

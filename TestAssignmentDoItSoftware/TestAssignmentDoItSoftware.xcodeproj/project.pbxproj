@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F5039B2E22173D3E0080DA14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5039B2D22173D3E0080DA14 /* AppDelegate.m */; };
-		F5039B3122173D3E0080DA14 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5039B3022173D3E0080DA14 /* ViewController.m */; };
-		F5039B3422173D3E0080DA14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5039B3222173D3E0080DA14 /* Main.storyboard */; };
 		F5039B3722173D3E0080DA14 /* TestAssignmentDoItSoftware.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5039B3522173D3E0080DA14 /* TestAssignmentDoItSoftware.xcdatamodeld */; };
 		F5039B3922173D400080DA14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5039B3822173D400080DA14 /* Assets.xcassets */; };
 		F5039B3C22173D400080DA14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5039B3A22173D400080DA14 /* LaunchScreen.storyboard */; };
@@ -29,9 +27,6 @@
 		F5039B2922173D3E0080DA14 /* TestAssignmentDoItSoftware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestAssignmentDoItSoftware.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5039B2C22173D3E0080DA14 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F5039B2D22173D3E0080DA14 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F5039B2F22173D3E0080DA14 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F5039B3022173D3E0080DA14 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		F5039B3322173D3E0080DA14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F5039B3622173D3E0080DA14 /* TestAssignmentDoItSoftware.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestAssignmentDoItSoftware.xcdatamodel; sourceTree = "<group>"; };
 		F5039B3822173D400080DA14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5039B3B22173D400080DA14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -84,15 +79,12 @@
 			isa = PBXGroup;
 			children = (
 				F54702EF221750DF008516C1 /* AuthScreen */,
-				F54702F4221750DF008516C1 /* EditTaskScreen */,
 				F54702F5221750DF008516C1 /* MyTaskListScreen */,
+				F54702F4221750DF008516C1 /* EditTaskScreen */,
 				F54702F6221750DF008516C1 /* TASingleton */,
 				F54702F3221750DF008516C1 /* TaskDetailScreen */,
 				F5039B2C22173D3E0080DA14 /* AppDelegate.h */,
 				F5039B2D22173D3E0080DA14 /* AppDelegate.m */,
-				F5039B2F22173D3E0080DA14 /* ViewController.h */,
-				F5039B3022173D3E0080DA14 /* ViewController.m */,
-				F5039B3222173D3E0080DA14 /* Main.storyboard */,
 				F5039B3822173D400080DA14 /* Assets.xcassets */,
 				F5039B3A22173D400080DA14 /* LaunchScreen.storyboard */,
 				F5039B3D22173D400080DA14 /* Info.plist */,
@@ -106,8 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				F54702F0221750DF008516C1 /* AuthScreenViewController.h */,
-				F54702F1221750DF008516C1 /* AuthScreenViewController.xib */,
 				F54702F2221750DF008516C1 /* AuthScreenViewController.m */,
+				F54702F1221750DF008516C1 /* AuthScreenViewController.xib */,
 			);
 			path = AuthScreen;
 			sourceTree = "<group>";
@@ -214,7 +206,6 @@
 				F54703022217516D008516C1 /* MyTaskListScreenViewController.xib in Resources */,
 				F54702F7221750DF008516C1 /* AuthScreenViewController.xib in Resources */,
 				F547030A2217522F008516C1 /* TaskDetailViewController.xib in Resources */,
-				F5039B3422173D3E0080DA14 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,7 +219,6 @@
 				F54703052217518C008516C1 /* TASingleton.m in Sources */,
 				F54703012217516D008516C1 /* MyTaskListScreenViewController.m in Sources */,
 				F54702F8221750DF008516C1 /* AuthScreenViewController.m in Sources */,
-				F5039B3122173D3E0080DA14 /* ViewController.m in Sources */,
 				F5039B2E22173D3E0080DA14 /* AppDelegate.m in Sources */,
 				F5039B3F22173D400080DA14 /* main.m in Sources */,
 				F5039B3722173D3E0080DA14 /* TestAssignmentDoItSoftware.xcdatamodeld in Sources */,
@@ -240,14 +230,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F5039B3222173D3E0080DA14 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F5039B3322173D3E0080DA14 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F5039B3A22173D400080DA14 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
