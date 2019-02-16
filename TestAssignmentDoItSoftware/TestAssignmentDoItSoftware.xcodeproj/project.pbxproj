@@ -79,8 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				F54702EF221750DF008516C1 /* AuthScreen */,
-				F54702F4221750DF008516C1 /* EditTaskScreen */,
 				F54702F5221750DF008516C1 /* MyTaskListScreen */,
+				F54702F4221750DF008516C1 /* EditTaskScreen */,
 				F54702F6221750DF008516C1 /* TASingleton */,
 				F54702F3221750DF008516C1 /* TaskDetailScreen */,
 				F5039B2C22173D3E0080DA14 /* AppDelegate.h */,

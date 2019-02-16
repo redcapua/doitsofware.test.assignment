@@ -56,12 +56,32 @@
 
     NSLog(@"btnAuth");
     
+    MyTaskListScreenViewController *myTaskListScreen = [[MyTaskListScreenViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:myTaskListScreen];
+    
+    [self presentViewController:navigationController animated:YES completion:nil];
+    
 }
 
 - (IBAction)swModeChanged:(id)sender{
     
     NSLog(@"swMode");
 
+    BOOL modeLoginRegister = false;
+    modeLoginRegister = [swMode isOn];
+    
+    if (modeLoginRegister == false){
+        //do login
+        
+        [btnAuth setTitle:@"LOG IN" forState:UIControlStateNormal];
+        
+    }else{
+        //do register
+
+        [btnAuth setTitle:@"REGISTER" forState:UIControlStateNormal];
+
+    }
+    
 }
 
 
