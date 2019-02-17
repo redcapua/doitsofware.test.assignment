@@ -10,7 +10,26 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TaskDetailViewController : UIViewController
+@interface TaskDetailViewController : UIViewController{
+    
+    NSDictionary *dicTask;
+    
+}
+
+
+@property (weak, nonatomic) IBOutlet UILabel *lblTaskTitle;
+@property (weak, nonatomic) IBOutlet UILabel *lblDueTo;
+@property (weak, nonatomic) IBOutlet UILabel *lblPriority;
+@property (weak, nonatomic) IBOutlet UILabel *lblDescription;
+@property (weak, nonatomic) IBOutlet UILabel *lblNotification;
+@property (weak, nonatomic) IBOutlet UILabel *lblLineUnderNotification;
+@property (weak, nonatomic) IBOutlet UISwitch *swNotification;
+@property (weak, nonatomic) IBOutlet UIButton *btnDeleteTask;
+
+
+-(void)setTaskDictionary:(NSDictionary *)dictionaryTask;
+- (IBAction)btnDeleteTaskTapped:(id)sender;
+
 
 @end
 

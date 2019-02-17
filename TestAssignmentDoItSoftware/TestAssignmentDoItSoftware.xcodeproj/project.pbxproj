@@ -35,6 +35,9 @@
 		F58D67362218BA1500D173C5 /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F58D67332218BA1500D173C5 /* add@2x.png */; };
 		F58D67372218BA1500D173C5 /* add@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F58D67342218BA1500D173C5 /* add@3x.png */; };
 		F58D67382218BA1500D173C5 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = F58D67352218BA1500D173C5 /* add.png */; };
+		F5B8FA9E2219C6FF0032D270 /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B8FA9B2219C6FF0032D270 /* edit.png */; };
+		F5B8FA9F2219C6FF0032D270 /* edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B8FA9C2219C6FF0032D270 /* edit@2x.png */; };
+		F5B8FAA02219C6FF0032D270 /* edit@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B8FA9D2219C6FF0032D270 /* edit@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +78,9 @@
 		F58D67332218BA1500D173C5 /* add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add@2x.png"; sourceTree = "<group>"; };
 		F58D67342218BA1500D173C5 /* add@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add@3x.png"; sourceTree = "<group>"; };
 		F58D67352218BA1500D173C5 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		F5B8FA9B2219C6FF0032D270 /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
+		F5B8FA9C2219C6FF0032D270 /* edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit@2x.png"; sourceTree = "<group>"; };
+		F5B8FA9D2219C6FF0032D270 /* edit@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,9 +116,9 @@
 				F58D671A2218AC6500D173C5 /* images */,
 				F54702EF221750DF008516C1 /* AuthScreen */,
 				F54702F5221750DF008516C1 /* MyTaskListScreen */,
+				F54702F3221750DF008516C1 /* TaskDetailScreen */,
 				F54702F4221750DF008516C1 /* EditTaskScreen */,
 				F54702F6221750DF008516C1 /* TASingleton */,
-				F54702F3221750DF008516C1 /* TaskDetailScreen */,
 				F5039B2C22173D3E0080DA14 /* AppDelegate.h */,
 				F5039B2D22173D3E0080DA14 /* AppDelegate.m */,
 				F5039B3822173D400080DA14 /* Assets.xcassets */,
@@ -177,6 +183,9 @@
 		F58D671A2218AC6500D173C5 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F5B8FA9B2219C6FF0032D270 /* edit.png */,
+				F5B8FA9C2219C6FF0032D270 /* edit@2x.png */,
+				F5B8FA9D2219C6FF0032D270 /* edit@3x.png */,
 				F58D67352218BA1500D173C5 /* add.png */,
 				F58D67332218BA1500D173C5 /* add@2x.png */,
 				F58D67342218BA1500D173C5 /* add@3x.png */,
@@ -261,16 +270,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5039B3C22173D400080DA14 /* LaunchScreen.storyboard in Resources */,
+				F5B8FA9E2219C6FF0032D270 /* edit.png in Resources */,
 				F58D67222218AC7A00D173C5 /* sort@3x.png in Resources */,
 				F54702FD2217514A008516C1 /* EditTaskScreenViewController.xib in Resources */,
 				F58D67212218AC7A00D173C5 /* sort@2x.png in Resources */,
 				F58D67252218AC7A00D173C5 /* alarm.png in Resources */,
 				F58D67322218B1F600D173C5 /* MyTaskTableViewCell.xib in Resources */,
+				F5B8FAA02219C6FF0032D270 /* edit@3x.png in Resources */,
 				F58D672A2218B12000D173C5 /* forward@3x.png in Resources */,
 				F5039B3922173D400080DA14 /* Assets.xcassets in Resources */,
 				F54703022217516D008516C1 /* MyTaskListScreenViewController.xib in Resources */,
 				F58D67372218BA1500D173C5 /* add@3x.png in Resources */,
 				F58D67382218BA1500D173C5 /* add.png in Resources */,
+				F5B8FA9F2219C6FF0032D270 /* edit@2x.png in Resources */,
 				F54702F7221750DF008516C1 /* AuthScreenViewController.xib in Resources */,
 				F58D672C2218B12000D173C5 /* forward.png in Resources */,
 				F58D67362218BA1500D173C5 /* add@2x.png in Resources */,
