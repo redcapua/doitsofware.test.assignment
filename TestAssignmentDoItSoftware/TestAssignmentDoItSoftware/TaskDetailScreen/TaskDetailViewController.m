@@ -28,6 +28,7 @@
 
 
 - (void)viewDidLoad {
+
     [super viewDidLoad];
 
     self.navigationController.navigationBar.topItem.title = @"Back";
@@ -35,7 +36,8 @@
     self.navigationItem.title = @"Tasks details";
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:232.0/255.0 green:232.0/255.0 blue:232.0/255.0 alpha:1.0];
-    
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:130.0/255.0 green:130.0/255.0 blue:130.0/255.0 alpha:1.0];
+
     NSString *editImage = @"edit.png";
     
     UIImage *editImg = [[UIImage imageNamed:editImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -44,6 +46,7 @@
     
     self.navigationItem.rightBarButtonItem = editButton;
 
+    
 }
 
 
@@ -58,7 +61,9 @@
 
 -(void)goToEditScreen{
     
-    NSLog(@"goToEditScreen");
+    EditTaskScreenViewController *editTaskScreen = [[EditTaskScreenViewController alloc] init];
+    
+    [self.navigationController pushViewController:editTaskScreen animated:YES];
     
 }
 
