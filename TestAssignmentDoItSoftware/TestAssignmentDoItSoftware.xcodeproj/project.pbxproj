@@ -38,6 +38,8 @@
 		F5B8FA9E2219C6FF0032D270 /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B8FA9B2219C6FF0032D270 /* edit.png */; };
 		F5B8FA9F2219C6FF0032D270 /* edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B8FA9C2219C6FF0032D270 /* edit@2x.png */; };
 		F5B8FAA02219C6FF0032D270 /* edit@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B8FA9D2219C6FF0032D270 /* edit@3x.png */; };
+		F5B8FAAB221A03440032D270 /* SortOrderForTasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B8FAA9221A03440032D270 /* SortOrderForTasksViewController.m */; };
+		F5B8FAAC221A03440032D270 /* SortOrderForTasksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5B8FAAA221A03440032D270 /* SortOrderForTasksViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +83,9 @@
 		F5B8FA9B2219C6FF0032D270 /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
 		F5B8FA9C2219C6FF0032D270 /* edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit@2x.png"; sourceTree = "<group>"; };
 		F5B8FA9D2219C6FF0032D270 /* edit@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit@3x.png"; sourceTree = "<group>"; };
+		F5B8FAA8221A03440032D270 /* SortOrderForTasksViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SortOrderForTasksViewController.h; sourceTree = "<group>"; };
+		F5B8FAA9221A03440032D270 /* SortOrderForTasksViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SortOrderForTasksViewController.m; sourceTree = "<group>"; };
+		F5B8FAAA221A03440032D270 /* SortOrderForTasksViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortOrderForTasksViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +229,9 @@
 		F5B8FAA22219F21F0032D270 /* SortTasksScreen */ = {
 			isa = PBXGroup;
 			children = (
+				F5B8FAA8221A03440032D270 /* SortOrderForTasksViewController.h */,
+				F5B8FAA9221A03440032D270 /* SortOrderForTasksViewController.m */,
+				F5B8FAAA221A03440032D270 /* SortOrderForTasksViewController.xib */,
 			);
 			path = SortTasksScreen;
 			sourceTree = "<group>";
@@ -305,6 +313,7 @@
 				F58D67232218AC7A00D173C5 /* alarm@3x.png in Resources */,
 				F58D67242218AC7A00D173C5 /* alarm@2x.png in Resources */,
 				F547030A2217522F008516C1 /* TaskDetailViewController.xib in Resources */,
+				F5B8FAAC221A03440032D270 /* SortOrderForTasksViewController.xib in Resources */,
 				F58D672B2218B12000D173C5 /* forward@2x.png in Resources */,
 				F58D67262218AC7A00D173C5 /* sort.png in Resources */,
 			);
@@ -325,6 +334,7 @@
 				F5039B3F22173D400080DA14 /* main.m in Sources */,
 				F5039B3722173D3E0080DA14 /* TestAssignmentDoItSoftware.xcdatamodeld in Sources */,
 				F54703092217522F008516C1 /* TaskDetailViewController.m in Sources */,
+				F5B8FAAB221A03440032D270 /* SortOrderForTasksViewController.m in Sources */,
 				F54702FC2217514A008516C1 /* EditTaskScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
