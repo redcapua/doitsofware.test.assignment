@@ -17,21 +17,37 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
-
-    self.navigationItem.title = @"Tasks details";
+    
+    self.navigationController.navigationBar.topItem.title = @"Back";
+    
+    self.navigationItem.title = @"Edit task";
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:232.0/255.0 green:232.0/255.0 blue:232.0/255.0 alpha:1.0];
-    
-//    NSString *editImage = @"edit.png";
-//
-//    UIImage *editImg = [[UIImage imageNamed:editImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//
-//    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:editImg style:UIBarButtonItemStylePlain target:self action:@selector(goToEditScreen)];
-//
-//    self.navigationItem.rightBarButtonItem = editButton;
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:130.0/255.0 green:130.0/255.0 blue:130.0/255.0 alpha:1.0];
 
 }
 
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
+    
+}
+
+
+- (IBAction)scPriorityChanged:(id)sender{
+    
+    NSLog(@"Priority changed");
+    
+}
+
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+    [self.view endEditing:YES];
+    
+}
 
 
 @end

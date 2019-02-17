@@ -118,6 +118,8 @@
 				F54702F5221750DF008516C1 /* MyTaskListScreen */,
 				F54702F3221750DF008516C1 /* TaskDetailScreen */,
 				F54702F4221750DF008516C1 /* EditTaskScreen */,
+				F5B8FAA22219F21F0032D270 /* SortTasksScreen */,
+				F5B8FAA12219F21F0032D270 /* RemindersScreen */,
 				F54702F6221750DF008516C1 /* TASingleton */,
 				F5039B2C22173D3E0080DA14 /* AppDelegate.h */,
 				F5039B2D22173D3E0080DA14 /* AppDelegate.m */,
@@ -210,6 +212,20 @@
 				F58D67302218B1F600D173C5 /* MyTaskTableViewCell.xib */,
 			);
 			path = MyTaskCell;
+			sourceTree = "<group>";
+		};
+		F5B8FAA12219F21F0032D270 /* RemindersScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RemindersScreen;
+			sourceTree = "<group>";
+		};
+		F5B8FAA22219F21F0032D270 /* SortTasksScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SortTasksScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

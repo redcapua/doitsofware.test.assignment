@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EditTaskScreenViewController.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
+
 
 @interface TaskDetailViewController : UIViewController{
     

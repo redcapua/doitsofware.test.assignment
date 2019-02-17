@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EditTaskScreenViewController : UIViewController
 
+
+- (IBAction)scPriorityChanged:(id)sender;
+
+
 @end
 
 NS_ASSUME_NONNULL_END
