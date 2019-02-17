@@ -71,7 +71,9 @@
 
 -(void)goToSortScreen{
     
-    NSLog(@"goToSortScreen");
+    SortOrderForTasksViewController *sortOrderForTasks = [[SortOrderForTasksViewController alloc] init];
+    
+    [self.navigationController pushViewController:sortOrderForTasks animated:YES];
     
 }
 
