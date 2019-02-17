@@ -10,23 +10,71 @@
 
 @interface TaskDetailViewController ()
 
+
 @end
+
 
 @implementation TaskDetailViewController
 
+
+@synthesize lblTaskTitle;
+@synthesize lblDueTo;
+@synthesize lblPriority;
+@synthesize lblDescription;
+@synthesize lblNotification;
+@synthesize swNotification;
+@synthesize lblLineUnderNotification;
+@synthesize btnDeleteTask;
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    self.navigationController.navigationBar.topItem.title = @"Back";
+    
+    self.navigationItem.title = @"Tasks details";
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:232.0/255.0 green:232.0/255.0 blue:232.0/255.0 alpha:1.0];
+    
+    NSString *editImage = @"edit.png";
+    
+    UIImage *editImg = [[UIImage imageNamed:editImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:editImg style:UIBarButtonItemStylePlain target:self action:@selector(goToEditScreen)];
+    
+    self.navigationItem.rightBarButtonItem = editButton;
+
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
+    lblTaskTitle.text = @"task title";
+    
 }
-*/
+
+
+-(void)goToEditScreen{
+    
+    NSLog(@"goToEditScreen");
+    
+}
+
+
+-(void)setTaskDictionary:(NSDictionary *)dictionaryTask{
+    
+    dicTask = [[NSDictionary alloc] initWithDictionary:dictionaryTask];
+    
+}
+
+
+- (IBAction)btnDeleteTaskTapped:(id)sender{
+    
+    NSLog(@"delete task tapped");
+    
+}
+
 
 @end

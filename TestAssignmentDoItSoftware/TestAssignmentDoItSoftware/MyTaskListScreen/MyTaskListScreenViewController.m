@@ -39,8 +39,8 @@
 
     NSArray *actionButtons = [[NSArray alloc] initWithObjects:alarmButton, sortButton, nil];
 
-    self.navigationItem.leftBarButtonItems = actionButtons;
-    self.navigationItem.rightBarButtonItem = addButton;
+    self.navigationItem.leftBarButtonItem = addButton;
+    self.navigationItem.rightBarButtonItems = actionButtons;
 
     arrTasks = [[NSMutableArray alloc] init];
 
@@ -145,6 +145,12 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tblTasks deselectRowAtIndexPath:indexPath animated:YES];
+
+    TaskDetailViewController *taskDetailScreen = [[TaskDetailViewController alloc] init];
+    
+    taskDetailScreen.lblTaskTitle.text = @"Title of the task";
+    
+    [self.navigationController pushViewController:taskDetailScreen animated:YES];
     
 }
 
