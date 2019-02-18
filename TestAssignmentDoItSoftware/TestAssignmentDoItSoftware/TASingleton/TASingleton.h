@@ -18,10 +18,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 
 
 + (TASingleton *)sharedInstance;
 
+-(NSNumber *)getNewId;
+-(void)addTask:(NSMutableDictionary *)dictionaryTask taskId:(NSNumber *)lidNumber;
 
 
 @end

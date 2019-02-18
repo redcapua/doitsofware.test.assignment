@@ -12,7 +12,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditTaskScreenViewController">
             <connections>
                 <outlet property="btnDateDueForTask" destination="ydD-NN-lfH" id="n3b-ke-nag"/>
+                <outlet property="btnSaveTask" destination="6YM-fQ-NDS" id="9dy-4n-CIZ"/>
                 <outlet property="lblDueTo" destination="srP-eX-3cs" id="Wbi-4A-EYO"/>
+                <outlet property="lblLineUnderNotification" destination="CeQ-NI-qGp" id="eiA-RF-qdI"/>
+                <outlet property="scPriority" destination="odO-Xk-yWq" id="GIt-2D-Ab5"/>
+                <outlet property="swNotification" destination="AJV-hD-P1N" id="fIy-7R-8Lo"/>
+                <outlet property="tvDescription" destination="CU6-3K-YYx" id="BcT-TW-Zrz"/>
+                <outlet property="tvTaskTitle" destination="Mhp-NW-Hat" id="Kyf-8J-tba"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -62,9 +68,9 @@
                         <constraint firstAttribute="height" constant="28" id="ty3-7O-wWQ"/>
                     </constraints>
                     <segments>
-                        <segment title="High"/>
-                        <segment title="Medium"/>
                         <segment title="Low"/>
+                        <segment title="Medium"/>
+                        <segment title="High"/>
                     </segments>
                     <color key="tintColor" red="0.50980392159999999" green="0.50980392159999999" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
@@ -87,7 +93,7 @@
                     <color key="textColor" red="0.50980392159999999" green="0.50980392159999999" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CU6-3K-YYx">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CU6-3K-YYx">
                     <rect key="frame" x="16" y="210" width="343" height="128"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -131,11 +137,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6YM-fQ-NDS">
-                    <rect key="frame" x="17" y="613" width="342" height="34"/>
+                    <rect key="frame" x="16" y="617" width="343" height="34"/>
                     <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Save task">
                         <color key="titleColor" red="0.50980392159999999" green="0.50980392159999999" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="btnSaveTaskTapped:" destination="-1" eventType="touchDown" id="sHQ-HK-EwC"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srP-eX-3cs">
                     <rect key="frame" x="16" y="395" width="343" height="21"/>
@@ -157,7 +166,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ydD-NN-lfH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="0NQ-do-ysw"/>
-                <constraint firstAttribute="bottom" secondItem="6YM-fQ-NDS" secondAttribute="bottom" constant="20" id="0TR-pm-T4P"/>
+                <constraint firstAttribute="bottom" secondItem="6YM-fQ-NDS" secondAttribute="bottom" constant="16" id="0TR-pm-T4P"/>
                 <constraint firstItem="CU6-3K-YYx" firstAttribute="top" secondItem="dwC-s0-Sqk" secondAttribute="bottom" constant="8" id="20C-60-YLC"/>
                 <constraint firstItem="dwC-s0-Sqk" firstAttribute="top" secondItem="JeF-Tf-P4c" secondAttribute="bottom" constant="8" id="5p5-6O-nIp"/>
                 <constraint firstItem="JeF-Tf-P4c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6RH-0b-iRJ"/>
@@ -186,7 +195,7 @@
                 <constraint firstAttribute="trailing" secondItem="Mhp-NW-Hat" secondAttribute="trailing" constant="16" id="ikt-h9-WKH"/>
                 <constraint firstItem="H8l-uJ-SWV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="kJc-my-a59"/>
                 <constraint firstAttribute="trailing" secondItem="nvV-Kx-dhd" secondAttribute="trailing" id="kS6-75-eYO"/>
-                <constraint firstItem="6YM-fQ-NDS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="17" id="mS0-ga-uax"/>
+                <constraint firstItem="6YM-fQ-NDS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="mS0-ga-uax"/>
                 <constraint firstItem="CeQ-NI-qGp" firstAttribute="top" secondItem="H8l-uJ-SWV" secondAttribute="bottom" constant="8" id="njq-T4-DXr"/>
                 <constraint firstAttribute="trailing" secondItem="JeF-Tf-P4c" secondAttribute="trailing" id="oJB-x7-NmF"/>
                 <constraint firstAttribute="trailing" secondItem="srP-eX-3cs" secondAttribute="trailing" constant="16" id="pCV-WB-FuN"/>
