@@ -40,6 +40,8 @@
 		F5B8FAA02219C6FF0032D270 /* edit@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B8FA9D2219C6FF0032D270 /* edit@3x.png */; };
 		F5B8FAAB221A03440032D270 /* SortOrderForTasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B8FAA9221A03440032D270 /* SortOrderForTasksViewController.m */; };
 		F5B8FAAC221A03440032D270 /* SortOrderForTasksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5B8FAAA221A03440032D270 /* SortOrderForTasksViewController.xib */; };
+		F5FC685F221AAE0B00CC6F22 /* RemindersScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FC685D221AAE0B00CC6F22 /* RemindersScreenViewController.m */; };
+		F5FC6860221AAE0B00CC6F22 /* RemindersScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5FC685E221AAE0B00CC6F22 /* RemindersScreenViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +88,9 @@
 		F5B8FAA8221A03440032D270 /* SortOrderForTasksViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SortOrderForTasksViewController.h; sourceTree = "<group>"; };
 		F5B8FAA9221A03440032D270 /* SortOrderForTasksViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SortOrderForTasksViewController.m; sourceTree = "<group>"; };
 		F5B8FAAA221A03440032D270 /* SortOrderForTasksViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortOrderForTasksViewController.xib; sourceTree = "<group>"; };
+		F5FC685C221AAE0B00CC6F22 /* RemindersScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemindersScreenViewController.h; sourceTree = "<group>"; };
+		F5FC685D221AAE0B00CC6F22 /* RemindersScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemindersScreenViewController.m; sourceTree = "<group>"; };
+		F5FC685E221AAE0B00CC6F22 /* RemindersScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemindersScreenViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +227,9 @@
 		F5B8FAA12219F21F0032D270 /* RemindersScreen */ = {
 			isa = PBXGroup;
 			children = (
+				F5FC685C221AAE0B00CC6F22 /* RemindersScreenViewController.h */,
+				F5FC685D221AAE0B00CC6F22 /* RemindersScreenViewController.m */,
+				F5FC685E221AAE0B00CC6F22 /* RemindersScreenViewController.xib */,
 			);
 			path = RemindersScreen;
 			sourceTree = "<group>";
@@ -299,6 +307,7 @@
 				F54702FD2217514A008516C1 /* EditTaskScreenViewController.xib in Resources */,
 				F58D67212218AC7A00D173C5 /* sort@2x.png in Resources */,
 				F58D67252218AC7A00D173C5 /* alarm.png in Resources */,
+				F5FC6860221AAE0B00CC6F22 /* RemindersScreenViewController.xib in Resources */,
 				F58D67322218B1F600D173C5 /* MyTaskTableViewCell.xib in Resources */,
 				F5B8FAA02219C6FF0032D270 /* edit@3x.png in Resources */,
 				F58D672A2218B12000D173C5 /* forward@3x.png in Resources */,
@@ -327,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F54703052217518C008516C1 /* TASingleton.m in Sources */,
+				F5FC685F221AAE0B00CC6F22 /* RemindersScreenViewController.m in Sources */,
 				F54703012217516D008516C1 /* MyTaskListScreenViewController.m in Sources */,
 				F54702F8221750DF008516C1 /* AuthScreenViewController.m in Sources */,
 				F5039B2E22173D3E0080DA14 /* AppDelegate.m in Sources */,

@@ -17,6 +17,10 @@
 
 @synthesize tblTasks;
 
+
+#pragma mark - UI view methods
+
+
 - (void)viewDidLoad {
 
     [super viewDidLoad];
@@ -64,8 +68,10 @@
 
 -(void)goToAlarmScreen{
     
-    NSLog(@"goToAlarmScreen");
-
+    RemindersScreenViewController *remindersScreen = [[RemindersScreenViewController alloc] init];
+    
+    [self.navigationController pushViewController:remindersScreen animated:YES];
+    
 }
 
 
@@ -90,6 +96,9 @@
     NSLog(@"Do refresh");
     
 }
+
+
+#pragma mark - UI tableview
 
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath { 
