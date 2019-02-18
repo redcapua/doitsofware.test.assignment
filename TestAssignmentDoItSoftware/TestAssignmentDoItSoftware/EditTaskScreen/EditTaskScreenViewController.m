@@ -68,6 +68,13 @@
     
     [super viewWillAppear:animated];
     
+    if ([dateDue unsignedIntegerValue] > 0){
+        
+        [self formatDueDate];
+        
+        return;
+    }
+    
     NSArray *keys = [dictionaryTask allKeys];
     
     if ([keys count] == 0){
@@ -98,29 +105,13 @@
     }
 
     status = [NSNumber numberWithUnsignedInteger:1];
-
-    NSUInteger dateDueMoment = [dateDue unsignedIntegerValue];
-    NSString *dateDueMomentStr = @"Due date is not set";
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:0];
-    
-    if (dateDueMoment > 0){
-        date = [NSDate dateWithTimeIntervalSince1970:[dateDue unsignedIntegerValue]];
-        
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-        dateDueMomentStr = [NSString stringWithFormat:@"Date due: %@", [dateFormatter stringFromDate:date]];
-        
-        NSLog(@"date: %@", dateDueMomentStr);
-        NSLog(@"date moment: %ld", (long) [dateDue unsignedIntegerValue]);
-        
-    }
     
     if (nid > 0){
         [swNotification setOn:YES];
     }
     
-    lblDueTo.text = dateDueMomentStr;
-
+    [self formatDueDate];
+    
     tvTaskTitle.text = title;
     tvDescription.text = details;
     
@@ -198,11 +189,18 @@
     [dictionaryTask setValue:prioritystr forKey:@"prioritystr"];
 
     TASingleton *singleton = [[TASingleton alloc] init];
-    
     [singleton addTask:dictionaryTask taskId:lid];
 
     //if notification date is in the past - do not save notification
     
+    NSArray *viewControllers = self.navigationController.viewControllers;
+    
+    if ([[viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2] isKindOfClass:[TaskDetailViewController class]] == YES){
+
+        TaskDetailViewController *taskDetailScreen = [viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2];
+        [taskDetailScreen setTaskDictionary:dictionaryTask];
+
+    }
     
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -268,6 +266,29 @@
         }
     }];
     
+}
+
+
+-(void)formatDueDate{
+    
+    NSUInteger dateDueMoment = [dateDue unsignedIntegerValue];
+    NSString *dateDueMomentStr = @"Due date is not set";
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:0];
+    
+    if (dateDueMoment > 0){
+        date = [NSDate dateWithTimeIntervalSince1970:[dateDue unsignedIntegerValue]];
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+        dateDueMomentStr = [NSString stringWithFormat:@"Date due: %@", [dateFormatter stringFromDate:date]];
+        
+        NSLog(@"date: %@", dateDueMomentStr);
+        NSLog(@"date moment: %ld", (long) [dateDue unsignedIntegerValue]);
+        
+    }
+    
+    lblDueTo.text = dateDueMomentStr;
+
 }
 
 @end

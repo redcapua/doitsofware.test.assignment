@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "TASingleton.h"
 #import "DateDueScreenViewController.h"
+#import "TaskDetailViewController.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 

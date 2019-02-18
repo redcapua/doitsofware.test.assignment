@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(NSNumber *)getNewId;
 -(void)addTask:(NSMutableDictionary *)dictionaryTask taskId:(NSNumber *)lidNumber;
+-(NSArray *)getTasks;
 
 
 @end

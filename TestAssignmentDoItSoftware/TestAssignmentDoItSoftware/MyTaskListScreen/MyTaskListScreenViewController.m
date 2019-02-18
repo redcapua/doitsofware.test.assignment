@@ -46,14 +46,7 @@
     self.navigationItem.leftBarButtonItem = addButton;
     self.navigationItem.rightBarButtonItems = actionButtons;
 
-    arrTasks = [[NSMutableArray alloc] init];
-
-    [arrTasks addObject:@"jdsjdsjd"];
-    [arrTasks addObject:@"sdfsf"];
-    [arrTasks addObject:@"sdfsf"];
-    [arrTasks addObject:@"sdfsf"];
-    [arrTasks addObject:@"sdfsf"];
-    [arrTasks addObject:@"sdfsf"];
+    arrTasks = [[NSArray alloc] init];
     
     if (refreshControl == nil){
         refreshControl = [[UIRefreshControl alloc] init];
@@ -88,12 +81,43 @@
     
     NSLog(@"goAddTaskScreen");
 
+    EditTaskScreenViewController *editTaskScreen = [[EditTaskScreenViewController alloc] init];
+    
+    NSMutableDictionary *dictionaryTask = [[NSMutableDictionary alloc] init];
+    [editTaskScreen setDictionaryTask:dictionaryTask];
+
+    [self.navigationController pushViewController:editTaskScreen animated:YES];
+    
 }
 
 
 -(void)doRefresh{
     
     NSLog(@"Do refresh");
+    
+    
+    TASingleton *singleton = [[TASingleton alloc] init];
+    arrTasks = [singleton getTasks];
+    
+    [tblTasks reloadData];
+
+    [self stopTableRefresh];
+    
+}
+
+
+-(void)stopTableRefresh{
+    
+    [refreshControl endRefreshing];
+    
+}
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
+    [self doRefresh];
     
 }
 
@@ -130,9 +154,14 @@
         [myTaskTableViewCell setLayoutMargins:UIEdgeInsetsZero];
     }
 
-    myTaskTableViewCell.lblTaskNameLabel.text = @"Complete this test assignment";
+    NSDictionary *task = [arrTasks objectAtIndex:indexPath.row];
+    
+    NSString *title = [task valueForKey:@"title"];
+    NSString *priorityStr = [task valueForKey:@"prioritystr"];
+
+    myTaskTableViewCell.lblTaskNameLabel.text = title;
     myTaskTableViewCell.lblDueToDateLabel.text = @"Due to 19/02/19";
-    myTaskTableViewCell.lblPriorityLabel.text = @"High";
+    myTaskTableViewCell.lblPriorityLabel.text = priorityStr;
     
     return myTaskTableViewCell;
 }

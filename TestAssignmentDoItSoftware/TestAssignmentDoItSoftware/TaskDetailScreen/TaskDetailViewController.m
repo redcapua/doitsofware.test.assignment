@@ -49,6 +49,7 @@
     
     self.navigationItem.rightBarButtonItem = editButton;
 
+    dictionaryTask = [[NSMutableDictionary alloc] init];
     
 }
 
@@ -57,7 +58,43 @@
     
     [super viewWillAppear:animated];
     
-    lblTaskTitle.text = @"task title";
+    lblTaskTitle.text = [dictionaryTask valueForKey:@"title"];
+    lblDescription.text = [dictionaryTask valueForKey:@"details"];
+    lblPriority.text = [dictionaryTask valueForKey:@"prioritystr"];
+
+    NSNumber *dateDue = [dictionaryTask valueForKey:@"dateto"];
+
+    if ([dateDue unsignedIntegerValue] > 0){
+
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:[dateDue unsignedIntegerValue]];
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"EEEE dd MMM, YYYY"];
+        NSString *dateDueMomentStr = [dateFormatter stringFromDate:date];
+        
+        lblDueTo.text = dateDueMomentStr;
+        
+        NSLog(@"date: %@", dateDueMomentStr);
+        NSLog(@"date moment: %ld", (long) [dateDue unsignedIntegerValue]);
+
+    }
+    
+    NSNumber *nid = [dictionaryTask valueForKey:@"nid"];
+
+    if ([nid unsignedIntegerValue] > 0){
+        
+        [swNotification setOn:YES];
+        
+    }else{
+        
+        [swNotification setOn:NO];
+
+        [lblNotification setHidden:YES];
+        [swNotification setHidden:YES];
+        [lblLineUnderNotification setHidden:YES];
+        
+    }
+    
     
 }
 
@@ -71,9 +108,9 @@
 }
 
 
--(void)setTaskDictionary:(NSDictionary *)dictionaryTask{
+-(void)setTaskDictionary:(NSDictionary *)dictionaryTaskIn{
     
-    dicTask = [[NSDictionary alloc] initWithDictionary:dictionaryTask];
+    dictionaryTask = [[NSDictionary alloc] initWithDictionary:dictionaryTaskIn];
     
 }
 

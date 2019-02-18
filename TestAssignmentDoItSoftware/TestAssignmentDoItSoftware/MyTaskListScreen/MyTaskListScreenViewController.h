@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MyTaskListScreenViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
  
     UIRefreshControl *refreshControl;
-    NSMutableArray *arrTasks;
+    NSArray *arrTasks;
     
 }
 

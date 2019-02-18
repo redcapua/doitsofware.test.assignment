@@ -65,10 +65,6 @@
     }else{
         task = [NSEntityDescription insertNewObjectForEntityForName:@"Tasks" inManagedObjectContext:self.managedObjectContext];
     }
-
-    NSArray *keys = [[[task entity] attributesByName] allKeys];
-    NSMutableDictionary *result = [NSMutableDictionary dictionaryWithDictionary:[task dictionaryWithValuesForKeys:keys]];
-    NSLog(@"task: %@", result);
     
     [task setValuesForKeysWithDictionary:[NSDictionary dictionaryWithDictionary:dictionaryTask]];
     
@@ -88,6 +84,46 @@
         
     }
 
+}
+
+
+-(NSArray *)getTasks{
+    
+    NSArray *resultArray;
+    NSMutableArray *fetchedTasks = [[NSMutableArray alloc] init];
+    Tasks *task;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks" inManagedObjectContext:self.managedObjectContext];
+    
+    NSNumber *status = [NSNumber numberWithUnsignedInteger:3];
+
+    NSPredicate *predicateLid = [NSPredicate predicateWithFormat:@"status < %@", status];
+    
+    NSPredicate *compPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:predicateLid, nil]];
+    [fetchRequest setPredicate:compPredicate];
+    
+    NSError *requestError = nil;
+    
+    [fetchRequest setIncludesPendingChanges:YES];
+    [fetchRequest setEntity:entity];
+    
+    NSArray *items = [self.managedObjectContext executeFetchRequest:fetchRequest error:&requestError];
+    
+    NSLog(@"records in Tasks: %ld", (long) [items count]);
+
+    for (task in items) {
+
+        NSArray *keys = [[[task entity] attributesByName] allKeys];
+        NSMutableDictionary *fetchedTask = [NSMutableDictionary dictionaryWithDictionary:[task dictionaryWithValuesForKeys:keys]];
+       
+        [fetchedTasks addObject:fetchedTask];
+        
+    }
+    
+    resultArray = [[NSArray alloc] initWithArray:fetchedTasks];
+    
+    return resultArray;
 }
 
 
