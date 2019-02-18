@@ -27,6 +27,9 @@
 @synthesize btnDeleteTask;
 
 
+#pragma mark - UI view methods
+
+
 - (void)viewDidLoad {
 
     [super viewDidLoad];

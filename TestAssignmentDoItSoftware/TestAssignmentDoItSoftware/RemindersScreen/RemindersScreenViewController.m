@@ -1,59 +1,51 @@
 //
-//  SortOrderForTasksViewController.m
+//  RemindersScreenViewController.m
 //  TestAssignmentDoItSoftware
 //
-//  Created by Vladimir Samoylenko on 2/17/19.
+//  Created by Vladimir Samoylenko on 2/18/19.
 //  Copyright © 2019 TheRedQueen. All rights reserved.
 //
 
-#import "SortOrderForTasksViewController.h"
+#import "RemindersScreenViewController.h"
 
-@interface SortOrderForTasksViewController ()
-
+@interface RemindersScreenViewController ()
 
 @end
 
-
-@implementation SortOrderForTasksViewController
-
-
-@synthesize tblOrderOptions;
+@implementation RemindersScreenViewController
 
 
 #pragma mark - UI view methods
 
 
 - (void)viewDidLoad {
-    
+
     [super viewDidLoad];
 
     self.navigationController.navigationBar.topItem.title = @"Back";
     
-    self.navigationItem.title = @"Task order";
+    self.navigationItem.title = @"Reminders";
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:232.0/255.0 green:232.0/255.0 blue:232.0/255.0 alpha:1.0];
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:130.0/255.0 green:130.0/255.0 blue:130.0/255.0 alpha:1.0];
 
-    arrSortOptions = [[NSMutableArray alloc] init];
-    
-    [arrSortOptions addObject:@"Name (asc)"];
-    [arrSortOptions addObject:@"Name (desc)"];
-    [arrSortOptions addObject:@"Priotiry (asc)"];
-    [arrSortOptions addObject:@"Priotiry (desc)"];
-    [arrSortOptions addObject:@"Date (asc)"];
-    [arrSortOptions addObject:@"Sate (desc)"];
+    arrReminders = [[NSMutableArray alloc] init];
     
 }
 
 
--(void)viewDidAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated{
     
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+    [arrReminders removeAllObjects];
     
-    [tblOrderOptions selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
-    
+    [arrReminders addObject:@"Title #1"];
+    [arrReminders addObject:@"Title #2"];
+    [arrReminders addObject:@"Title #3"];
+    [arrReminders addObject:@"Title #4"];
+    [arrReminders addObject:@"Title #5"];
+
 }
 
 
@@ -65,7 +57,7 @@
     UITableViewCell *cell = [[UITableViewCell alloc] init];
     
     NSInteger indexPosition = indexPath.row;
-    NSString *orderName = [arrSortOptions objectAtIndex:indexPosition];
+    NSString *orderName = [arrReminders objectAtIndex:indexPosition];
     
     cell.textLabel.text = orderName;
     
@@ -75,7 +67,7 @@
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    NSInteger cntEvents = [arrSortOptions count];
+    NSInteger cntEvents = [arrReminders count];
     
     return cntEvents;
 }
@@ -87,6 +79,5 @@
     
     return heightOfRow;
 }
-
 
 @end
