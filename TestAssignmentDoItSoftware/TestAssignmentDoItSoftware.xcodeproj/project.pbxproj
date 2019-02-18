@@ -42,6 +42,11 @@
 		F5B8FAAC221A03440032D270 /* SortOrderForTasksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5B8FAAA221A03440032D270 /* SortOrderForTasksViewController.xib */; };
 		F5FC685F221AAE0B00CC6F22 /* RemindersScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FC685D221AAE0B00CC6F22 /* RemindersScreenViewController.m */; };
 		F5FC6860221AAE0B00CC6F22 /* RemindersScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5FC685E221AAE0B00CC6F22 /* RemindersScreenViewController.xib */; };
+		F5FC686F221AE48600CC6F22 /* Tasks+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FC686D221AE48600CC6F22 /* Tasks+CoreDataClass.m */; };
+		F5FC6870221AE48600CC6F22 /* Tasks+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FC686E221AE48600CC6F22 /* Tasks+CoreDataProperties.m */; };
+		F5FC6875221AEE7400CC6F22 /* DateDueScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FC6873221AEE7400CC6F22 /* DateDueScreenViewController.m */; };
+		F5FC6876221AEE7400CC6F22 /* DateDueScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5FC6874221AEE7400CC6F22 /* DateDueScreenViewController.xib */; };
+		F5FC6878221AF03B00CC6F22 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F5FC6877221AF03B00CC6F22 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +96,14 @@
 		F5FC685C221AAE0B00CC6F22 /* RemindersScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemindersScreenViewController.h; sourceTree = "<group>"; };
 		F5FC685D221AAE0B00CC6F22 /* RemindersScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemindersScreenViewController.m; sourceTree = "<group>"; };
 		F5FC685E221AAE0B00CC6F22 /* RemindersScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemindersScreenViewController.xib; sourceTree = "<group>"; };
+		F5FC686B221AE48600CC6F22 /* Tasks+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tasks+CoreDataProperties.h"; sourceTree = "<group>"; };
+		F5FC686C221AE48600CC6F22 /* Tasks+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tasks+CoreDataClass.h"; sourceTree = "<group>"; };
+		F5FC686D221AE48600CC6F22 /* Tasks+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Tasks+CoreDataClass.m"; sourceTree = "<group>"; };
+		F5FC686E221AE48600CC6F22 /* Tasks+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Tasks+CoreDataProperties.m"; sourceTree = "<group>"; };
+		F5FC6872221AEE7400CC6F22 /* DateDueScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateDueScreenViewController.h; sourceTree = "<group>"; };
+		F5FC6873221AEE7400CC6F22 /* DateDueScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateDueScreenViewController.m; sourceTree = "<group>"; };
+		F5FC6874221AEE7400CC6F22 /* DateDueScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateDueScreenViewController.xib; sourceTree = "<group>"; };
+		F5FC6877221AF03B00CC6F22 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,16 +141,18 @@
 				F54702F5221750DF008516C1 /* MyTaskListScreen */,
 				F54702F3221750DF008516C1 /* TaskDetailScreen */,
 				F54702F4221750DF008516C1 /* EditTaskScreen */,
+				F5FC6871221AEE4E00CC6F22 /* DateDueScreen */,
 				F5B8FAA22219F21F0032D270 /* SortTasksScreen */,
 				F5B8FAA12219F21F0032D270 /* RemindersScreen */,
 				F54702F6221750DF008516C1 /* TASingleton */,
+				F5FC6861221ADA1900CC6F22 /* CoreDataRelated */,
 				F5039B2C22173D3E0080DA14 /* AppDelegate.h */,
 				F5039B2D22173D3E0080DA14 /* AppDelegate.m */,
 				F5039B3822173D400080DA14 /* Assets.xcassets */,
 				F5039B3A22173D400080DA14 /* LaunchScreen.storyboard */,
 				F5039B3D22173D400080DA14 /* Info.plist */,
 				F5039B3E22173D400080DA14 /* main.m */,
-				F5039B3522173D3E0080DA14 /* TestAssignmentDoItSoftware.xcdatamodeld */,
+				F5FC6877221AF03B00CC6F22 /* README.md */,
 			);
 			path = TestAssignmentDoItSoftware;
 			sourceTree = "<group>";
@@ -244,6 +259,29 @@
 			path = SortTasksScreen;
 			sourceTree = "<group>";
 		};
+		F5FC6861221ADA1900CC6F22 /* CoreDataRelated */ = {
+			isa = PBXGroup;
+			children = (
+				F5FC686B221AE48600CC6F22 /* Tasks+CoreDataProperties.h */,
+				F5FC686E221AE48600CC6F22 /* Tasks+CoreDataProperties.m */,
+				F5FC686C221AE48600CC6F22 /* Tasks+CoreDataClass.h */,
+				F5FC686D221AE48600CC6F22 /* Tasks+CoreDataClass.m */,
+				F5039B3522173D3E0080DA14 /* TestAssignmentDoItSoftware.xcdatamodeld */,
+			);
+			name = CoreDataRelated;
+			path = TestAssignmentDoItSoftware/CoreDataRelated;
+			sourceTree = SOURCE_ROOT;
+		};
+		F5FC6871221AEE4E00CC6F22 /* DateDueScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F5FC6872221AEE7400CC6F22 /* DateDueScreenViewController.h */,
+				F5FC6873221AEE7400CC6F22 /* DateDueScreenViewController.m */,
+				F5FC6874221AEE7400CC6F22 /* DateDueScreenViewController.xib */,
+			);
+			path = DateDueScreen;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -305,6 +343,7 @@
 				F5B8FA9E2219C6FF0032D270 /* edit.png in Resources */,
 				F58D67222218AC7A00D173C5 /* sort@3x.png in Resources */,
 				F54702FD2217514A008516C1 /* EditTaskScreenViewController.xib in Resources */,
+				F5FC6878221AF03B00CC6F22 /* README.md in Resources */,
 				F58D67212218AC7A00D173C5 /* sort@2x.png in Resources */,
 				F58D67252218AC7A00D173C5 /* alarm.png in Resources */,
 				F5FC6860221AAE0B00CC6F22 /* RemindersScreenViewController.xib in Resources */,
@@ -313,6 +352,7 @@
 				F58D672A2218B12000D173C5 /* forward@3x.png in Resources */,
 				F5039B3922173D400080DA14 /* Assets.xcassets in Resources */,
 				F54703022217516D008516C1 /* MyTaskListScreenViewController.xib in Resources */,
+				F5FC6876221AEE7400CC6F22 /* DateDueScreenViewController.xib in Resources */,
 				F58D67372218BA1500D173C5 /* add@3x.png in Resources */,
 				F58D67382218BA1500D173C5 /* add.png in Resources */,
 				F5B8FA9F2219C6FF0032D270 /* edit@2x.png in Resources */,
@@ -338,6 +378,7 @@
 				F54703052217518C008516C1 /* TASingleton.m in Sources */,
 				F5FC685F221AAE0B00CC6F22 /* RemindersScreenViewController.m in Sources */,
 				F54703012217516D008516C1 /* MyTaskListScreenViewController.m in Sources */,
+				F5FC6870221AE48600CC6F22 /* Tasks+CoreDataProperties.m in Sources */,
 				F54702F8221750DF008516C1 /* AuthScreenViewController.m in Sources */,
 				F5039B2E22173D3E0080DA14 /* AppDelegate.m in Sources */,
 				F58D67312218B1F600D173C5 /* MyTaskTableViewCell.m in Sources */,
@@ -345,7 +386,9 @@
 				F5039B3722173D3E0080DA14 /* TestAssignmentDoItSoftware.xcdatamodeld in Sources */,
 				F54703092217522F008516C1 /* TaskDetailViewController.m in Sources */,
 				F5B8FAAB221A03440032D270 /* SortOrderForTasksViewController.m in Sources */,
+				F5FC686F221AE48600CC6F22 /* Tasks+CoreDataClass.m in Sources */,
 				F54702FC2217514A008516C1 /* EditTaskScreenViewController.m in Sources */,
+				F5FC6875221AEE7400CC6F22 /* DateDueScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,10 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import "Tasks+CoreDataClass.h"
+#import "Tasks+CoreDataProperties.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TASingleton : NSObject
+
+
+@property (readonly, strong) NSPersistentContainer *persistentContainer;
+
+
++ (TASingleton *)sharedInstance;
+
+
 
 @end
 

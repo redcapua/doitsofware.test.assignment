@@ -15,6 +15,9 @@
 @implementation EditTaskScreenViewController
 
 
+@synthesize lblDueTo;
+
+
 #pragma mark - UI view methods
 
 
@@ -29,6 +32,8 @@
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:232.0/255.0 green:232.0/255.0 blue:232.0/255.0 alpha:1.0];
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:130.0/255.0 green:130.0/255.0 blue:130.0/255.0 alpha:1.0];
 
+    dateDue = [NSNumber numberWithInteger:0];
+    
 }
 
 
@@ -36,6 +41,31 @@
     
     [super viewWillAppear:animated];
     
+    NSUInteger dateDueMoment = [dateDue unsignedIntegerValue];
+    NSString *dateDueMomentStr = @"";
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:0];
+    
+    if (dateDueMoment > 0){
+        date = [NSDate dateWithTimeIntervalSince1970:[dateDue unsignedIntegerValue]];
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+        dateDueMomentStr = [NSString stringWithFormat:@"Date due: %@", [dateFormatter stringFromDate:date]];
+        
+        NSLog(@"date: %@", dateDueMomentStr);
+
+    }
+    
+    lblDueTo.text = dateDueMomentStr;
+    
+}
+
+
+- (IBAction)btnDateDueTaskTapped:(id)sender{
+    
+    DateDueScreenViewController *dateDueScreen = [[DateDueScreenViewController alloc] init];
+    
+    [self.navigationController pushViewController:dateDueScreen animated:YES];
     
 }
 
@@ -53,5 +83,11 @@
     
 }
 
+
+-(void) setDateDue:(NSNumber *)dateDueIn{
+    
+    dateDue = dateDueIn;
+    
+}
 
 @end
