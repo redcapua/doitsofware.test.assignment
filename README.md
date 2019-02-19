@@ -1,6 +1,10 @@
 # doitsofware.test.assignment
 Test assignment from DoIt.software
 
+[Task description](https://github.com/redcapua/doitsofware.test.assignment/blob/master/iOS_Android%20test%20task_%20Update%2015_02_19.pdf)
+
+[API description](https://github.com/redcapua/doitsofware.test.assignment/blob/master/API%20Docs.webarchive)
+
 
 Mistakes in this test assignement:
 1) On screen edit task button "Save" is missed
