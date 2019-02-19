@@ -13,6 +13,7 @@
 @synthesize managedObjectModel;
 @synthesize managedObjectContext;
 @synthesize persistentContainer = _persistentContainer;
+@synthesize userInfo;
 
 #pragma mark - singleton global procedures
 
@@ -206,6 +207,310 @@
     resultArray = [[NSArray alloc] initWithArray:fetchedTasks];
     
     return resultArray;
+}
+
+#pragma mark - Network interactions
+
+
+-(BOOL)isConnected{
+    
+    BOOL connected;
+    
+    connected = NO;
+    
+    NSURL *scriptUrl = [NSURL URLWithString:@"http://google.com"];
+    NSData *data = [NSData dataWithContentsOfURL:scriptUrl];
+    if (data){
+        connected = YES;
+    }
+    
+    return connected;
+}
+
+
+-(void)registerUser:(NSString *)userName password:(NSString *)password{
+
+    NSString *post = @"/users";
+
+    NSMutableDictionary *postDic = [[NSMutableDictionary alloc] init];
+    [postDic setValue:userName forKey:@"email"];
+    [postDic setValue:password forKey:@"password"];
+    
+    NSError *error;
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:postDic options:NSJSONWritingPrettyPrinted error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"JSON: %@", jsonString);
+    
+    if (error != nil){
+        
+        NSString *errorDescrition = [error description];
+        [self uniNotification:@"JSON Error" message:errorDescrition notifName:@"registrationfailed" notifData:[[NSDictionary alloc] init]];
+        
+        NSLog(@"JSON seralisation error");
+        
+        return;
+    }
+
+    NSData *postData = [jsonString dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[jsonString length]];
+    
+    NSString *requestURL = [webserviceURL stringByAppendingString:post];
+    
+    NSURL *url = [NSURL URLWithString:requestURL];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:timeoutforWebconnection];
+    
+    request.HTTPMethod = @"POST";
+    request.HTTPBody = postData;
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
+    
+    NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *connectionError) {
+        
+        if (([data length] > 0) && (connectionError == nil)){
+            NSString *html = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"html = %@", html);
+            
+            NSError *localError = nil;
+            NSDictionary *deserializedDictionary;
+            
+            id parsedObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&localError];
+            
+            if (localError != nil){
+                
+                NSString *deparseError = [connectionError description];
+                
+                [self uniNotification:@"JSON Error" message:deparseError notifName:@"registrationfailed" notifData:[[NSDictionary alloc] init]];
+                
+                NSLog(@"JSON deSeralisation error");
+                return;
+            }
+            
+            
+            if ([parsedObject isKindOfClass:[NSDictionary class]]){
+                
+                deserializedDictionary = (NSDictionary *)parsedObject;
+                self->decodedJSONDictionary = [NSDictionary dictionaryWithDictionary:deserializedDictionary];
+                
+            }
+            
+            
+            NSString *token = [self->decodedJSONDictionary valueForKey:@"token"];
+            NSString *message = [self->decodedJSONDictionary valueForKey:@"message"];
+
+            if (token == nil){
+                
+                NSString *errorMessage = @"User registration error";
+                
+                if (message !=  nil){
+                    
+                    errorMessage = message;
+                    
+                }
+                
+                [self uniNotification:@"Registration error" message:errorMessage notifName:@"registrationfailed" notifData:nil];
+                return;
+            }
+            
+            self->userInfo = [[NSMutableDictionary alloc] initWithDictionary:self->decodedJSONDictionary];
+            
+            appDelegate.token = token;
+            
+            [self uniNotification:@"Registration" message:@"Registration successful" notifName:@"registrationdone" notifData:nil];
+            
+        }else if (([data length] == 0) && (connectionError == 0)){
+            NSLog(@"result is empty");
+            
+            [self uniNotification:@"Connection error" message:@"Empty responce from server" notifName:@"registrationfailed" notifData:nil];
+            
+        }else if (connectionError != nil){
+            
+            NSLog(@"error happend: %@", connectionError);
+            
+            NSString *connectionErrorDescription = [connectionError description];
+            
+            [self uniNotification:@"Connection error" message:connectionErrorDescription notifName:@"registrationfailed" notifData:nil];
+            
+        }
+        
+    }];
+    
+    [postDataTask resume];
+    
+}
+
+
+-(void)authUser:(NSString *)userName password:(NSString *)password{
+    
+    NSString *post = @"/auth";
+    
+    NSMutableDictionary *postDic = [[NSMutableDictionary alloc] init];
+    [postDic setValue:userName forKey:@"email"];
+    [postDic setValue:password forKey:@"password"];
+    
+    NSError *error;
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:postDic options:NSJSONWritingPrettyPrinted error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"JSON: %@", jsonString);
+    
+    if (error != nil){
+        
+        NSString *errorDescrition = [error description];
+        [self uniNotification:@"JSON Error" message:errorDescrition notifName:@"authfailed" notifData:[[NSDictionary alloc] init]];
+        
+        NSLog(@"JSON seralisation error");
+        
+        return;
+    }
+    
+    NSData *postData = [jsonString dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[jsonString length]];
+    
+    NSString *requestURL = [webserviceURL stringByAppendingString:post];
+    
+    NSURL *url = [NSURL URLWithString:requestURL];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:timeoutforWebconnection];
+    
+    request.HTTPMethod = @"POST";
+    request.HTTPBody = postData;
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
+    
+    NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *connectionError) {
+        
+        if (([data length] > 0) && (connectionError == nil)){
+            NSString *html = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"html = %@", html);
+            
+            NSError *localError = nil;
+            NSDictionary *deserializedDictionary;
+            
+            id parsedObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&localError];
+            
+            if (localError != nil){
+                
+                NSString *deparseError = [connectionError description];
+                
+                [self uniNotification:@"JSON Error" message:deparseError notifName:@"authfailed" notifData:[[NSDictionary alloc] init]];
+                
+                NSLog(@"JSON deSeralisation error");
+                return;
+            }
+            
+            
+            if ([parsedObject isKindOfClass:[NSDictionary class]]){
+                
+                deserializedDictionary = (NSDictionary *)parsedObject;
+                self->decodedJSONDictionary = [NSDictionary dictionaryWithDictionary:deserializedDictionary];
+                
+            }
+            
+            
+            NSString *token = [self->decodedJSONDictionary valueForKey:@"token"];
+            NSString *message = [self->decodedJSONDictionary valueForKey:@"message"];
+            
+            if (token == nil){
+                
+                NSString *errorMessage = @"User registration error";
+                
+                if (message !=  nil){
+                    
+                    errorMessage = message;
+                    
+                }
+                
+                [self uniNotification:@"Registration error" message:errorMessage notifName:@"authfailed" notifData:nil];
+                return;
+            }
+            
+            self->userInfo = [[NSMutableDictionary alloc] initWithDictionary:self->decodedJSONDictionary];
+            
+            appDelegate.token = token;
+            
+            [self uniNotification:@"Registration" message:@"Registration successful" notifName:@"authdone" notifData:nil];
+            
+        }else if (([data length] == 0) && (connectionError == 0)){
+            NSLog(@"result is empty");
+            
+            [self uniNotification:@"Connection error" message:@"Empty responce from server" notifName:@"authfailed" notifData:nil];
+            
+        }else if (connectionError != nil){
+            
+            NSLog(@"error happend: %@", connectionError);
+            
+            NSString *connectionErrorDescription = [connectionError description];
+            
+            [self uniNotification:@"Connection error" message:connectionErrorDescription notifName:@"authfailed" notifData:nil];
+            
+        }
+        
+    }];
+    
+    [postDataTask resume];
+    
+}
+
+
+#pragma mark - Notifications
+
+
+-(void)uniNotification:(NSString *)title message:(NSString *)message notifName:(NSString *)notifNname notifData:(NSDictionary *)notifData{
+    
+    //NS Log(@"cookie login ok");
+    
+    NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
+    
+    [userInfo setValue:title forKey:@"title"];
+    [userInfo setValue:message forKey:@"message"];
+    
+    if (notifData != nil){
+        [userInfo setValue:notifData forKey:@"dictionary"];
+    }
+    
+    if (![NSThread isMainThread])
+    {
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            
+            NSNotification *notification = [NSNotification notificationWithName:notifNname object:self userInfo:userInfo];
+            
+            [self sendNorification:notification];
+            
+        });
+        return;
+    }else{
+        
+        NSNotification *notification = [NSNotification notificationWithName:notifNname object:self userInfo:userInfo];
+        
+        [self sendNorification:notification];
+        
+    }
+    
+}
+
+
+
+-(void)sendNorification:(NSNotification *)notification
+{
+    
+    [[NSNotificationQueue defaultQueue]
+     enqueueNotification:notification
+     postingStyle:NSPostNow];
+    
 }
 
 

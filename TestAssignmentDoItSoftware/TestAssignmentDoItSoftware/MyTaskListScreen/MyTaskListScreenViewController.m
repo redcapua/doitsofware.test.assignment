@@ -136,6 +136,7 @@
         
     }];
 
+    NSLog(@"token: %@", appDelegate.token);
     
 }
 

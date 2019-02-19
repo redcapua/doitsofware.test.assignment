@@ -47,14 +47,36 @@
     btnAuth.layer.cornerRadius = 2.0;
     btnAuth.layer.borderWidth = 1.0;
     
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"registrationfailed" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(authFailed:) name:@"registrationfailed" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"registrationdone" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(authCompleted:) name:@"registrationdone" object:nil];
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"authfailed" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(authFailed:) name:@"authfailed" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"authdone" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(authCompleted:) name:@"authdone" object:nil];
+
+}
+
+
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"registerfailed" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"registrationdone" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"authfailed" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"authdone" object:nil];
+
 }
 
 
 -(void)viewDidAppear:(BOOL)animated{
     
     [super viewDidAppear:animated];
-    
-    [self btnAuthTapped:nil];
     
 }
 
@@ -64,11 +86,38 @@
 - (IBAction)btnAuthTapped:(id)sender{
 
     NSLog(@"btnAuth");
-    
-    MyTaskListScreenViewController *myTaskListScreen = [[MyTaskListScreenViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:myTaskListScreen];
-    
-    [self presentViewController:navigationController animated:YES completion:nil];
+
+    if ([self checkProvidedValues] == true){
+        
+        [self showActivity];
+        
+        TASingleton *singleton = [[TASingleton alloc] init];
+        
+        if ([singleton isConnected] == true){
+            
+            NSString *userName = tfLogin.text;
+            NSString *password = tfPassword.text;
+            
+            BOOL modeLoginRegister = false;
+            modeLoginRegister = [swMode isOn];
+
+            if (modeLoginRegister == false){
+
+                [singleton authUser:userName password:password];
+
+            }else{
+
+                [singleton registerUser:userName password:password];
+
+            }
+            
+        }else{
+            
+            [self hideActivity];
+            
+        };
+        
+    }
     
 }
 
@@ -157,6 +206,13 @@
         }
     }
     
+    
+    if (resultStatus > 0){
+
+        [self showAlertMessage:@"Error!" message:statusText];
+
+    }
+    
     return result;
 }
 
@@ -222,8 +278,11 @@
     tfLogin.text = @"";
     tfPassword.text = @"";
     
-#warning goto next screen
-    
+    MyTaskListScreenViewController *myTaskListScreen = [[MyTaskListScreenViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:myTaskListScreen];
+
+    [self presentViewController:navigationController animated:YES completion:nil];
+
     
 }
 
