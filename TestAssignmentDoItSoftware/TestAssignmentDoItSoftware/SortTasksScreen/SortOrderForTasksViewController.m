@@ -41,7 +41,7 @@
     [arrSortOptions addObject:@"Priotiry (asc)"];
     [arrSortOptions addObject:@"Priotiry (desc)"];
     [arrSortOptions addObject:@"Date (asc)"];
-    [arrSortOptions addObject:@"Sate (desc)"];
+    [arrSortOptions addObject:@"Date (desc)"];
     
 }
 
@@ -50,8 +50,9 @@
     
     [super viewDidAppear:animated];
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+    NSInteger indexPathRow = [[NSUserDefaults standardUserDefaults] integerForKey:@"sortOrder"];
     
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:indexPathRow inSection:0];
     [tblOrderOptions selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
     
 }
@@ -86,6 +87,14 @@
     CGFloat heightOfRow = 37.0;
     
     return heightOfRow;
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [[NSUserDefaults standardUserDefaults] setInteger:indexPath.row forKey:@"sortOrder"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
 }
 
 

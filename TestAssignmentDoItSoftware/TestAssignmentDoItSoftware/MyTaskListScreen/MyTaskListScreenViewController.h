@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MyTaskCell/MyTaskTableViewCell.h"
+#import "AppDelegate.h"
 #import "TaskDetailViewController.h"
 #import "SortOrderForTasksViewController.h"
 #import "RemindersScreenViewController.h"
@@ -18,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MyTaskListScreenViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
  
     UIRefreshControl *refreshControl;
-    NSMutableArray *arrTasks;
+    NSArray *arrTasks;
     
 }
 

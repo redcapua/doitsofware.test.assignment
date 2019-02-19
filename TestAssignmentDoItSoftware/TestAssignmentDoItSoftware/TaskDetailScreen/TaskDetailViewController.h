@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TaskDetailViewController : UIViewController{
     
-    NSDictionary *dicTask;
+    NSDictionary *dictionaryTask;
     
 }
 
@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *btnDeleteTask;
 
 
--(void)setTaskDictionary:(NSDictionary *)dictionaryTask;
+-(void)setTaskDictionary:(NSDictionary *)dictionaryTaskIn;
 - (IBAction)btnDeleteTaskTapped:(id)sender;
 
 

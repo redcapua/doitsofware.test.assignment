@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DateDueScreenViewController">
+            <connections>
+                <outlet property="btnSetDateDueForTask" destination="0g1-GY-Qc8" id="P25-8E-r4S"/>
+                <outlet property="dpDateDue" destination="L7i-mt-1xg" id="xVb-1x-J78"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="L7i-mt-1xg">
+                    <rect key="frame" x="0.0" y="16" width="375" height="216"/>
+                    <date key="date" timeIntervalSinceReferenceDate="572192690.47346103">
+                        <!--2019-02-18 14:24:50 +0000-->
+                    </date>
+                </datePicker>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0g1-GY-Qc8">
+                    <rect key="frame" x="16" y="240" width="343" height="30"/>
+                    <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Set date due">
+                        <color key="titleColor" red="0.50980392159999999" green="0.50980392159999999" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="btnSetDateDueForTask:" destination="-1" eventType="touchDown" id="j6d-8e-HcE"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="L7i-mt-1xg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="dXr-Jq-lvb"/>
+                <constraint firstItem="0g1-GY-Qc8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="e3K-56-ocP"/>
+                <constraint firstItem="L7i-mt-1xg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lg4-aB-sQV"/>
+                <constraint firstItem="0g1-GY-Qc8" firstAttribute="top" secondItem="L7i-mt-1xg" secondAttribute="bottom" constant="8" id="oVT-8T-htC"/>
+                <constraint firstAttribute="trailing" secondItem="L7i-mt-1xg" secondAttribute="trailing" id="s35-ey-2EM"/>
+                <constraint firstAttribute="trailing" secondItem="0g1-GY-Qc8" secondAttribute="trailing" constant="16" id="vxB-bB-ook"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

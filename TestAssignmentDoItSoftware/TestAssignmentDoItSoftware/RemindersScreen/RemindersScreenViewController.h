@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <UserNotifications/UserNotifications.h>
+#import "TASingleton.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RemindersScreenViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>{
     
-    NSMutableArray *arrReminders;
+    NSArray *arrReminders;
     
 }
 
