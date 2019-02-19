@@ -58,9 +58,6 @@
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"authdone" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(authCompleted:) name:@"authdone" object:nil];
-    
-//    tfLogin.text = @"vovan4u1@ukr.net";
-//    tfPassword.text = @"u125kr.net";
 
 }
 
