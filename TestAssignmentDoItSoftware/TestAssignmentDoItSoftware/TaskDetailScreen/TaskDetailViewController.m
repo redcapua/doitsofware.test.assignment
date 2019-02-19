@@ -49,8 +49,6 @@
     
     self.navigationItem.rightBarButtonItem = editButton;
 
-    dictionaryTask = [[NSMutableDictionary alloc] init];
-    
 }
 
 
@@ -103,6 +101,8 @@
     
     EditTaskScreenViewController *editTaskScreen = [[EditTaskScreenViewController alloc] init];
     
+    [editTaskScreen setDictionaryTask:dictionaryTask];
+    
     [self.navigationController pushViewController:editTaskScreen animated:YES];
     
 }
@@ -118,6 +118,17 @@
 - (IBAction)btnDeleteTaskTapped:(id)sender{
     
     NSLog(@"delete task tapped");
+    
+    NSMutableDictionary *mutableDictionaryTask = [[NSMutableDictionary alloc] initWithDictionary:dictionaryTask];
+    
+    NSNumber *lid = [dictionaryTask valueForKey:@"lid"];
+    NSNumber *status = [NSNumber numberWithUnsignedInteger:3];
+    [mutableDictionaryTask setValue:status forKey:@"status"];
+    
+    TASingleton *singleton = [[TASingleton alloc] init];
+    [singleton addTask:mutableDictionaryTask taskId:lid];
+
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 

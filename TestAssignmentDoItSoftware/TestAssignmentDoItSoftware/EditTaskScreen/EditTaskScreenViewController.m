@@ -40,7 +40,6 @@
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:130.0/255.0 green:130.0/255.0 blue:130.0/255.0 alpha:1.0];
 
     dateDue = [NSNumber numberWithInteger:0];
-    dictionaryTask = [[NSMutableDictionary alloc] init];
     
     tid = [NSNumber numberWithUnsignedInteger:0];
     lid = [NSNumber numberWithUnsignedInteger:0];
@@ -131,6 +130,7 @@
 
 - (IBAction)scPriorityChanged:(id)sender{
 
+    priority = [NSNumber numberWithInteger:scPriority.selectedSegmentIndex];
     
     switch ([priority unsignedIntegerValue]) {
         case 0:{
@@ -174,16 +174,24 @@
     title = tvTaskTitle.text;
     details = tvDescription.text;
     
+    if ([title length] == 0){
+        [self showAlertMessage:@"Error!" message:@"Title value is missed"];
+    }
+    
+    
+    if ([details length] == 0){
+        [self showAlertMessage:@"Error!" message:@"Description value is missed"];
+    }
+
+    
     NSMutableDictionary *dictionaryTask = [[NSMutableDictionary alloc] init];
     
     [dictionaryTask setValue:tid forKey:@"tid"];
     [dictionaryTask setValue:lid forKey:@"lid"];
     [dictionaryTask setValue:title forKey:@"title"];
-
     [dictionaryTask setValue:priority forKey:@"priority"];
     [dictionaryTask setValue:nid forKey:@"nid"];
     [dictionaryTask setValue:status forKey:@"status"];
-
     [dictionaryTask setValue:dateDue forKey:@"dateto"];
     [dictionaryTask setValue:details forKey:@"details"];
     [dictionaryTask setValue:prioritystr forKey:@"prioritystr"];
@@ -213,6 +221,19 @@
     dictionaryTask = [[NSMutableDictionary alloc] initWithDictionary:dictionaryTaskIn];
     
 }
+
+
+-(void)showAlertMessage:(NSString *)title message:(NSString *)message{
+    
+    UIAlertController *alertController = [UIAlertController  alertControllerWithTitle:title  message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:ok];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+}
+
 
 
 - (void)textViewDidBeginEditing:(UITextView *)textView{

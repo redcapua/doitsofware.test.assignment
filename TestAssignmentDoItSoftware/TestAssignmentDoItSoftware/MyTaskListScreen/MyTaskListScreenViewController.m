@@ -95,7 +95,6 @@
     
     NSLog(@"Do refresh");
     
-    
     TASingleton *singleton = [[TASingleton alloc] init];
     arrTasks = [singleton getTasks];
     
@@ -188,10 +187,42 @@
 
     TaskDetailViewController *taskDetailScreen = [[TaskDetailViewController alloc] init];
     
-    taskDetailScreen.lblTaskTitle.text = @"Title of the task";
+    NSDictionary *dictionaryTask = [arrTasks objectAtIndex:indexPath.row];
+    [taskDetailScreen setTaskDictionary:dictionaryTask];
     
     [self.navigationController pushViewController:taskDetailScreen animated:YES];
     
 }
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    BOOL result = YES;
+    
+    return result;
+    
+}
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        NSDictionary *dictionaryTask = [arrTasks objectAtIndex:indexPath.row];
+
+        NSMutableDictionary *mutableDictionaryTask = [[NSMutableDictionary alloc] initWithDictionary:dictionaryTask];
+        
+        NSNumber *lid = [dictionaryTask valueForKey:@"lid"];
+        NSNumber *status = [NSNumber numberWithUnsignedInteger:3];
+        [mutableDictionaryTask setValue:status forKey:@"status"];
+        
+        TASingleton *singleton = [[TASingleton alloc] init];
+        [singleton addTask:mutableDictionaryTask taskId:lid];
+
+        [self doRefresh];
+        
+    }
+}
+
 
 @end

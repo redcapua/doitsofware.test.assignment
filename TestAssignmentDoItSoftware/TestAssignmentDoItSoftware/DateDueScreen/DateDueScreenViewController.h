@@ -12,7 +12,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DateDueScreenViewController : UIViewController
-//<UIPickerViewDelegate, UIPickerViewDataSource>
 
 
 @property (weak, nonatomic) IBOutlet UIButton *btnSetDateDueForTask;

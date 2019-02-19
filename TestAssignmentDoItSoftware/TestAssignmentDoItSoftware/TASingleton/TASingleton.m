@@ -103,6 +103,48 @@
     NSPredicate *compPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:predicateLid, nil]];
     [fetchRequest setPredicate:compPredicate];
     
+    NSInteger sortOrder = [[NSUserDefaults standardUserDefaults] integerForKey:@"sortOrder"];
+
+    NSSortDescriptor *sortingPredicate;
+
+    
+    switch (sortOrder) {
+        case 0:{
+            
+            sortingPredicate = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
+            break;
+        }
+        case 1:{
+            sortingPredicate = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:NO];
+            break;
+        }
+        case 2:{
+
+            sortingPredicate = [[NSSortDescriptor alloc] initWithKey:@"priority" ascending:YES];
+            break;
+        }
+        case 3:{
+            
+            sortingPredicate = [[NSSortDescriptor alloc] initWithKey:@"priority" ascending:NO];
+            break;
+        }
+        case 4:{
+            
+            sortingPredicate = [[NSSortDescriptor alloc] initWithKey:@"dateto" ascending:YES];
+            break;
+        }
+        case 5:{
+            
+            sortingPredicate = [[NSSortDescriptor alloc] initWithKey:@"dateto" ascending:NO];
+            break;
+        }
+
+    }
+
+    NSArray *arrSortOrder = [[NSArray alloc] initWithObjects:sortingPredicate, nil];
+    fetchRequest.sortDescriptors = arrSortOrder;
+
+    
     NSError *requestError = nil;
     
     [fetchRequest setIncludesPendingChanges:YES];
