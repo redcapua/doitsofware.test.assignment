@@ -16,7 +16,7 @@
 
 
 @synthesize localNotifications;
-
+@synthesize token;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 

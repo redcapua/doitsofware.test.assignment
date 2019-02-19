@@ -18,6 +18,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, assign) BOOL localNotifications;
+@property (strong, nonatomic) NSString *token;
 
 @end
 

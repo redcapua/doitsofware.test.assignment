@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "MyTaskListScreenViewController.h"
+#import "TASingleton.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
