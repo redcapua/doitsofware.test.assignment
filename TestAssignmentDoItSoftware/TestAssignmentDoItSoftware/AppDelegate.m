@@ -15,12 +15,27 @@
 @implementation AppDelegate
 
 
+@synthesize localNotifications;
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     AuthScreenViewController *authScreen = [[AuthScreenViewController alloc] init];
     [self.window setRootViewController:authScreen];
+    
+    localNotifications = false;
+    
+    [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+    
+    UNAuthorizationOptions authOptions = UNAuthorizationOptionAlert | UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
+    [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:authOptions completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        
+        self.localNotifications = granted;
+        
+    }];
+
     
     [self.window makeKeyAndVisible];
 

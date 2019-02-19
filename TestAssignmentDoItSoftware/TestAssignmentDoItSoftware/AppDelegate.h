@@ -10,12 +10,14 @@
 #import <UserNotifications/UserNotifications.h>
 #import "AuthScreen/AuthScreenViewController.h"
 
+#define appDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UNUserNotificationCenterDelegate>
 
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (nonatomic, assign) BOOL localNotifications;
 
 @end
 

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <UserNotifications/UserNotifications.h>
+#import "AppDelegate.h"
 #import "TASingleton.h"
 #import "DateDueScreenViewController.h"
 #import "TaskDetailViewController.h"

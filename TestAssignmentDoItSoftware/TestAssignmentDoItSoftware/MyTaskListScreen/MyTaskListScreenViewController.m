@@ -118,6 +118,25 @@
     
     [self doRefresh];
     
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
+    UNUserNotificationCenter *localNotificationCenter = [UNUserNotificationCenter currentNotificationCenter];
+    
+    [localNotificationCenter getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+        
+        if (settings.authorizationStatus != UNAuthorizationStatusAuthorized) {
+            
+            appDelegate.localNotifications = false;
+            
+        }else{
+            
+            appDelegate.localNotifications = true;
+            
+        }
+        
+    }];
+
+    
 }
 
 

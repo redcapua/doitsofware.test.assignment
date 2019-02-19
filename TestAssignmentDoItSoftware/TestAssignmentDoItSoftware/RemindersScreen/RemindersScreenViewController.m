@@ -10,9 +10,14 @@
 
 @interface RemindersScreenViewController ()
 
+
 @end
 
+
 @implementation RemindersScreenViewController
+
+
+@synthesize tblReminders;
 
 
 #pragma mark - UI view methods
@@ -29,7 +34,7 @@
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:232.0/255.0 green:232.0/255.0 blue:232.0/255.0 alpha:1.0];
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:130.0/255.0 green:130.0/255.0 blue:130.0/255.0 alpha:1.0];
 
-    arrReminders = [[NSMutableArray alloc] init];
+    arrReminders = [[NSArray alloc] init];
     
 }
 
@@ -38,14 +43,41 @@
     
     [super viewWillAppear:animated];
     
-    [arrReminders removeAllObjects];
+    TASingleton *singleton = [[TASingleton alloc] init];
+    arrReminders = [singleton getNotifications];
     
-    [arrReminders addObject:@"Title #1"];
-    [arrReminders addObject:@"Title #2"];
-    [arrReminders addObject:@"Title #3"];
-    [arrReminders addObject:@"Title #4"];
-    [arrReminders addObject:@"Title #5"];
+    [tblReminders reloadData];
 
+}
+
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:animated];
+
+    UNUserNotificationCenter *localNotificationCenter = [UNUserNotificationCenter currentNotificationCenter];
+    
+    [localNotificationCenter getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+
+        if (settings.authorizationStatus != UNAuthorizationStatusAuthorized) {
+
+            UIAlertController *alertController = [UIAlertController  alertControllerWithTitle:@"Error"  message:@"Local notifications are not granted :(" preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+                [self.navigationController popViewControllerAnimated:YES];
+                
+            }];
+            
+            [alertController addAction:ok];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+
+        }
+
+    }];
+    
+    
 }
 
 
@@ -56,10 +88,9 @@
     
     UITableViewCell *cell = [[UITableViewCell alloc] init];
     
-    NSInteger indexPosition = indexPath.row;
-    NSString *orderName = [arrReminders objectAtIndex:indexPosition];
-    
-    cell.textLabel.text = orderName;
+    NSDictionary *task = [arrReminders objectAtIndex:indexPath.row];
+    NSString *title = [task valueForKey:@"title"];
+    cell.textLabel.text = title;
     
     return cell;
 }
@@ -79,5 +110,38 @@
     
     return heightOfRow;
 }
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    BOOL result = YES;
+    
+    return result;
+    
+}
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        NSDictionary *dictionaryTask = [arrReminders objectAtIndex:indexPath.row];
+        
+        NSMutableDictionary *mutableDictionaryTask = [[NSMutableDictionary alloc] initWithDictionary:dictionaryTask];
+        
+        NSNumber *lid = [dictionaryTask valueForKey:@"lid"];
+        NSNumber *nid = [NSNumber numberWithUnsignedInteger:0];
+        [mutableDictionaryTask setValue:nid forKey:@"nid"];
+        
+        TASingleton *singleton = [[TASingleton alloc] init];
+        [singleton addTask:mutableDictionaryTask taskId:lid];
+        
+        arrReminders = [singleton getNotifications];
+        
+        [tblReminders reloadData];
+
+    }
+}
+
 
 @end

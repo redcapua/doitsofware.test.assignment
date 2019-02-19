@@ -105,8 +105,14 @@
 
     status = [NSNumber numberWithUnsignedInteger:1];
     
-    if (nid > 0){
+    if ([nid unsignedIntegerValue] > 0){
+        
         [swNotification setOn:YES];
+        
+    }else{
+        
+        [swNotification setOn:NO];
+
     }
     
     [self formatDueDate];
@@ -183,6 +189,9 @@
         [self showAlertMessage:@"Error!" message:@"Description value is missed"];
     }
 
+    if ([swNotification isOn] == false){
+        nid = [NSNumber numberWithUnsignedInteger:0];
+    }
     
     NSMutableDictionary *dictionaryTask = [[NSMutableDictionary alloc] init];
     
@@ -210,6 +219,41 @@
 
     }
     
+
+    if ((appDelegate.localNotifications == true) && ([swNotification isOn] == true)) {
+        
+        NSUInteger dateDueMoment = [dateDue unsignedIntegerValue] - 600;
+       
+        NSDate *now = [NSDate dateWithTimeIntervalSinceNow:0];
+        NSUInteger nowMoment = [now timeIntervalSince1970];
+        NSUInteger delta = dateDueMoment - nowMoment;
+        
+        UNMutableNotificationContent *localNotification = [[UNMutableNotificationContent alloc] init];
+        localNotification.title = title;
+        localNotification.body = details;
+        localNotification.sound = [UNNotificationSound defaultSound];
+        
+        localNotification.badge = @([[UIApplication sharedApplication] applicationIconBadgeNumber] + 1);
+
+        UNTimeIntervalNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:delta repeats: NO];
+        
+        NSString *identifierLocalNotification = [NSString stringWithFormat:@"%ld", (long)[lid unsignedIntegerValue]];
+        
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identifierLocalNotification
+                                                                              content:localNotification trigger:trigger];
+
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+            NSLog(@"Error: %@", [error localizedDescription]);
+        }];
+
+        nid = lid;
+        
+        [dictionaryTask setValue:nid forKey:@"nid"];
+        [singleton addTask:dictionaryTask taskId:lid];
+
+    
+    }
     
     [self.navigationController popViewControllerAnimated:YES];
     

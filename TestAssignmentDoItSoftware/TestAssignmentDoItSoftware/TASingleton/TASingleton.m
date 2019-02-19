@@ -169,6 +169,45 @@
 }
 
 
+-(NSArray *)getNotifications{
+    
+    NSArray *resultArray;
+    NSMutableArray *fetchedTasks = [[NSMutableArray alloc] init];
+    Tasks *task;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks" inManagedObjectContext:self.managedObjectContext];
+    
+    NSNumber *nid = [NSNumber numberWithUnsignedInteger:0];
+    
+    NSPredicate *predicateLid = [NSPredicate predicateWithFormat:@"nid > %@", nid];
+    
+    NSPredicate *compPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:predicateLid, nil]];
+    [fetchRequest setPredicate:compPredicate];
+    
+    NSError *requestError = nil;
+    
+    [fetchRequest setIncludesPendingChanges:YES];
+    [fetchRequest setEntity:entity];
+    
+    NSArray *items = [self.managedObjectContext executeFetchRequest:fetchRequest error:&requestError];
+    
+    NSLog(@"records with notifications in Tasks: %ld", (long) [items count]);
+    
+    for (task in items) {
+        
+        NSArray *keys = [[[task entity] attributesByName] allKeys];
+        NSMutableDictionary *fetchedTask = [NSMutableDictionary dictionaryWithDictionary:[task dictionaryWithValuesForKeys:keys]];
+        
+        [fetchedTasks addObject:fetchedTask];
+        
+    }
+    
+    resultArray = [[NSArray alloc] initWithArray:fetchedTasks];
+    
+    return resultArray;
+}
+
 
 #pragma mark - Core Data stack
 
